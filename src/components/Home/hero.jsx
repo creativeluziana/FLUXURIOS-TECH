@@ -4,6 +4,7 @@ import Button2 from '../Button2';
 import { CircleCheckBig } from 'lucide-react';
 import '../../styles/Home.css';
 import HomeImage from '../../assets/home_img1.png';
+import PatternImage from '../../assets/home_pattern.png';
 
 const HomeContent = () => {
   const teams = [
@@ -17,6 +18,7 @@ const HomeContent = () => {
 
   return (
     <main className="main">
+      <img src={PatternImage} alt="" className="pattern-background" />
       <div className="content">
         {/* Left Content */}
         <div className="left-content">
