@@ -3,6 +3,7 @@ import Button1 from '../Button1';
 import Button2 from '../Button2';
 import { CircleCheckBig } from 'lucide-react';
 import '../../styles/Home.css';
+import HomeImage from '../../assets/home_img1.png';
 
 const HomeContent = () => {
   const teams = [
@@ -58,7 +59,7 @@ const HomeContent = () => {
           <div className="dashboard-container">
             <div className="glow-effect"></div>
             <img 
-              src="src/assets/home_img1.png" 
+              src={HomeImage}
               alt="Dashboard Preview" 
               className="dashboard-image"
             />

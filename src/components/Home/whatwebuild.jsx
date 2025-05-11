@@ -1,19 +1,20 @@
 import React from 'react';
 import '../../styles/WhatWeBuild.css';
 import BlurEffect from '../../assets/Blur.png';
+import LandzyImage from '../../assets/landzy.png';
 
 const services = [
   {
     title: 'Websites',
-    image: 'src/assets/landzy.png',
+    image: LandzyImage,
   },
   {
     title: 'Mobile Apps',
-    image: 'src/assets/landzy.png',
+    image: LandzyImage,
   },
   {
     title: 'Backend Systems',
-    image: 'src/assets/landzy.png',
+    image: LandzyImage,
   },
 ];
 
