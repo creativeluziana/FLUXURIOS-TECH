@@ -1,0 +1,72 @@
+import React from 'react';
+import Button1 from '../Button1';
+import Button2 from '../Button2';
+import { CircleCheckBig } from 'lucide-react';
+import '../../styles/Home.css';
+
+const HomeContent = () => {
+  const teams = [
+    'Startup Founders',
+    'Creative Agencies',
+    'App-first Brands',
+    'Solo Entrepreneurs',
+    'SaaS Builders',
+    'MVP-Stage Ventures',
+  ];
+
+  return (
+    <main className="main">
+      <div className="content">
+        {/* Left Content */}
+        <div className="left-content">
+          <h1 className="hero-title">
+            Launch-Ready<br />
+            Websites and Apps.<br />
+            Built in One Week.
+          </h1>
+          
+          <p className="hero-description">
+            Custom digital products, designed with precision and delivered with speed — no shortcuts, no compromises.
+          </p>
+
+          <div className="buttons">
+            <Button2>
+              Start a Project
+            </Button2>
+            <Button1>
+              Explore Pages
+            </Button1>
+          </div>
+
+          <div className="teams-section">
+            <h3 className="teams-title">
+              Suitable For High-Growth Teams Like
+            </h3>
+            <div className="teams-grid">
+              {teams.map((team, index) => (
+                <div key={index} className="team-item">
+                  <CircleCheckBig size={24} className="check-icon" />
+                  <span>{team}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Content - Dashboard Preview */}
+        <div className="right-content">
+          <div className="dashboard-container">
+            <div className="glow-effect"></div>
+            <img 
+              src="src/assets/home_img1.png" 
+              alt="Dashboard Preview" 
+              className="dashboard-image"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default HomeContent;

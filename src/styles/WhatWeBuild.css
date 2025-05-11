@@ -1,0 +1,289 @@
+/* Add keyframes for the glow animation */
+@keyframes glowEntry {
+  0% {
+    opacity: 0;
+    filter: brightness(0.5) blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1) blur(0);
+  }
+}
+
+@keyframes lightBeam {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  51% {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+}
+
+.what-we-build {
+  background-color: #0A0A1B;
+  padding: 40px 0 120px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.blur-top-effect {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+  min-width: 100px;
+  height: auto;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+  filter: blur(10px) brightness(1.1);
+  mix-blend-mode: screen;
+}
+
+/* Soften the gradient overlay to show more glow */
+.what-we-build::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(to bottom,
+    rgba(10, 10, 27, 0) 0%,
+    rgba(10, 10, 27, 0.4) 60%,
+    rgba(10, 10, 27, 0.8) 90%,
+    #0A0A1B 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 3;  /* Ensure content stays on top */
+}
+
+/* Remove the old glow effects */
+.what-we-build::before,
+.what-we-build::after {
+  display: none;
+}
+
+/* Header Styles */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 0 24px;
+}
+
+/* Outer Border Only */
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 400px;
+  padding: 24px;
+  border-radius: 32px;
+  background: transparent;
+  border: 2px solid rgba(85, 81, 119, 1);
+  transition: transform 0.3s ease;
+}
+
+.card-wrapper:hover {
+  transform: translateY(-6px);
+}
+
+/* Inner image frame (optional subtle border) */
+.card-inner {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid rgba(85, 81, 119, 1);
+  height: 300px;
+  padding: 16px;
+  background: rgba(13, 13, 27, 0.3);
+}
+
+/* Image wrapper with matching style */
+.image-wrapper {
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(85, 81, 119, 1);
+  background: transparent;
+  padding: 12px;
+}
+
+/* Image area */
+.card-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 8px;
+  border: none;
+}
+
+.card-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card-wrapper:hover .card-content img {
+  transform: scale(1.03);
+}
+
+/* Title below image */
+.card-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-top: 24px;
+  height: 30px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .cards-grid {
+    justify-items: center;
+  }
+
+  .card-wrapper {
+    max-width: 260px;
+    height: 360px;
+    padding: 20px;
+  }
+
+  .card-inner {
+    height: 270px;
+    padding: 14px;
+  }
+
+  .image-wrapper {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 22px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    max-width: 600px;
+    margin: 0 auto;
+    place-items: center;
+  }
+
+  .card-wrapper {
+    max-width: 240px;
+    height: 320px;
+    padding: 16px;
+  }
+
+  .card-inner {
+    height: 240px;
+    padding: 12px;
+  }
+
+  .image-wrapper {
+    padding: 8px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    max-width: 280px;
+    gap: 32px;
+  }
+
+  .card-wrapper {
+    max-width: 220px;
+    height: 300px;
+    padding: 14px;
+  }
+
+  .card-inner {
+    height: 220px;
+    padding: 10px;
+  }
+
+  .image-wrapper {
+    padding: 6px;
+  }
+
+  .card-title {
+    font-size: 18px;
+    margin-top: 14px;
+  }
+} 
