@@ -23,9 +23,7 @@ const HomeContent = () => {
         {/* Left Content */}
         <div className="left-content">
           <h1 className="hero-title">
-            Launch-Ready<br />
-            Websites and Apps.<br />
-            Built in One Week.
+            Launch-Ready Websites and Apps. Built in One Week.
           </h1>
           
           <p className="hero-description">

@@ -10,7 +10,7 @@
 .main {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 40px 96px;
+  padding: 80px 96px 40px;
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -51,6 +51,15 @@
   line-height: 1.1;
   color: white;
   margin-bottom: 24px;
+}
+
+.hero-title .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  will-change: transform, opacity;
+  white-space: pre;
+  transform-origin: center bottom;
 }
 
 .hero-description {

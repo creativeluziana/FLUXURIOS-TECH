@@ -42,7 +42,7 @@ export default function WhatWeBuild() {
                   <div className="card-footer">
                   </div>
                 </div>
-                <h3>{title}</h3>
+                <h3 className="card-title">{title}</h3>
               </div>
             </div>
           ))}
