@@ -8,9 +8,9 @@
 }
 
 .main {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 80px 96px 40px;
+  width: 100%;
+  margin: 0;
+  padding: 160px 0 40px;
   min-height: 90vh;
   display: flex;
   align-items: center;
@@ -36,6 +36,9 @@
   align-items: center;
   gap: 60px;
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 96px;
   position: relative;
   z-index: 2;
 }
@@ -213,7 +216,11 @@
 /* Tablet Styles */
 @media (max-width: 1280px) {
   .main {
-    padding: 32px 64px;
+    padding: 140px 0 40px;
+  }
+
+  .content {
+    padding: 0 60px;
   }
 
   .hero-title {
@@ -229,18 +236,16 @@
   }
 
   .main {
-    padding: 0 24px;
+    padding: 120px 0 40px;
     min-height: auto;
     height: auto;
     margin-top: 0;
   }
 
   .content {
+    padding: 0 40px;
     flex-direction: column;
     gap: 32px;
-    width: 100%;
-    position: relative;
-    z-index: 1;
   }
 
   .left-content {
@@ -299,7 +304,11 @@
 /* Mobile screens */
 @media (max-width: 520px) {
   .main {
-    padding: 0 20px;
+    padding: 100px 0 40px;
+  }
+
+  .content {
+    padding: 0 24px;
   }
 
   .hero-title {

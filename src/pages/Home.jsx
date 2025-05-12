@@ -1,18 +1,22 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Home/hero';
-import WhatWeBuild from '../components/Home/whatwebuild';
-import WhatsUnderHood from '../components/Home/WhatsUnderHood';
-import HowWeDeliver from '../components/Home/HowWeDeliver';
+import Navbar from '../components/Navbar.jsx';
+import HomeContent from '../components/Home/hero.jsx';
+import WhatWeBuild from '../components/Home/whatwebuild.jsx';
+import HowWeDeliver from '../components/Home/HowWeDeliver.jsx';
+import OurWork from '../components/Home/OurWork.jsx';
+import Testimonials from '../components/Home/Testimonials.jsx';
+import Footer from '../components/Footer.jsx';
 
 const Home = () => {
   return (
     <div className="home-container">
       <Navbar />
-      <Hero />
+      <HomeContent />
       <WhatWeBuild />
-      <WhatsUnderHood />
       <HowWeDeliver />
+      <OurWork />
+      <Testimonials />
+      <Footer />
     </div>
   );
 };
