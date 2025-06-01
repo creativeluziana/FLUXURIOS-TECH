@@ -33,11 +33,84 @@
 }
 
 .what-we-build {
-  background-color: #0A0A1B;
-  padding: 40px 0 120px;
-  color: white;
-  position: relative;
-  overflow: hidden;
+  padding: 6rem 0;
+  background: rgba(13, 12, 34, 0.8);
+}
+
+.section-container {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.section-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 4rem;
+  text-align: center;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-0.5rem);
+}
+
+.service-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .what-we-build {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .blur-top-effect {
