@@ -15,25 +15,3 @@
 .font-inter {
   font-family: 'Inter', sans-serif;
 }
-
-:root {
-  font-size: 16px; /* Base font size for desktop */
-}
-
-@media screen and (max-width: 1440px) {
-  :root {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  :root {
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  :root {
-    font-size: 10px;
-  }
-}
