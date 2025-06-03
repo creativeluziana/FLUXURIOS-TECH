@@ -140,10 +140,45 @@
   margin: 0 auto;
 }
 
-.project-display:active {
+.project-display.is-dragging {
   cursor: grabbing;
 }
 
+.drag-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+  will-change: transform, opacity;
+}
+
+.drag-indicator img {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0 0.625rem rgba(171, 40, 250, 0.5));
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Update project card styles to work with drag indicator */
 .project-card {
   position: absolute;
   width: 100%;
@@ -156,12 +191,19 @@
   overflow: hidden;
   border-radius: 1.5rem;
   will-change: transform, opacity;
+  touch-action: pan-x;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
-.project-card.active {
-  opacity: 1;
-  transform: translateX(0);
-  z-index: 1;
+.project-display.is-dragging .project-card {
+  transition: none;
+  cursor: grabbing;
+}
+
+.project-display.is-dragging .project-card.active {
+  transition: transform 0.1s linear;
 }
 
 /* Even cards slide right */
@@ -174,6 +216,16 @@
 .project-card[data-index="odd"]:not(.active) {
   transform: translateX(-100%);
   opacity: 0;
+}
+
+.project-card.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+}
+
+.project-card.active.dragging {
+  transition: none;
 }
 
 @keyframes slideInFromRight {

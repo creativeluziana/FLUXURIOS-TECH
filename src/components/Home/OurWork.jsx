@@ -3,6 +3,7 @@ import '../../styles/OurWork.css';
 import landzyImage from '../../assets/landzy.png';
 import projectsImage from '../../assets/projects.png';
 import BlurEffect from '../../assets/Blur.png';
+import LogoSymbol from '../../assets/IMP/LOGO_SYMBOL.png';
 
 const OurWork = () => {
   const projects = [
@@ -55,6 +56,8 @@ const OurWork = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [touchDistance, setTouchDistance] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const projectDisplayRef = useRef(null);
 
   // Minimum swipe distance in pixels
@@ -84,16 +87,27 @@ const OurWork = () => {
 
   // Touch handlers for swipe functionality
   const onTouchStart = (e) => {
+    if (isTransitioning) return;
+    setIsDragging(true);
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
+    setTouchDistance(0);
   };
 
   const onTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    if (!isDragging || isTransitioning) return;
+    const currentTouch = e.targetTouches[0].clientX;
+    setTouchEnd(currentTouch);
+    const distance = touchStart - currentTouch;
+    setTouchDistance(distance);
   };
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+    if (!isDragging || !touchStart || !touchEnd) {
+      setIsDragging(false);
+      setTouchDistance(0);
+      return;
+    }
     
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
@@ -104,21 +118,27 @@ const OurWork = () => {
     } else if (isRightSwipe) {
       prevProject();
     }
+    
+    setIsDragging(false);
+    setTouchDistance(0);
   };
 
   // Implement mouse drag functionality (for desktop testing)
-  const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
   const [dragEnd, setDragEnd] = useState(0);
+  const [dragDistance, setDragDistance] = useState(0);
 
   const onMouseDown = (e) => {
     setIsDragging(true);
     setDragStart(e.clientX);
+    setDragDistance(0);
   };
 
   const onMouseMove = (e) => {
     if (isDragging) {
       setDragEnd(e.clientX);
+      const distance = dragStart - e.clientX;
+      setDragDistance(distance);
     }
   };
 
@@ -133,11 +153,13 @@ const OurWork = () => {
         }
       }
       setIsDragging(false);
+      setDragDistance(0);
     }
   };
 
   const onMouseLeave = () => {
     setIsDragging(false);
+    setDragDistance(0);
   };
 
   useEffect(() => {
@@ -188,7 +210,7 @@ const OurWork = () => {
             
             <div 
               ref={projectDisplayRef}
-              className="project-display"
+              className={`project-display ${isDragging || Math.abs(dragDistance) > 0 ? 'is-dragging' : ''}`}
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
@@ -197,12 +219,29 @@ const OurWork = () => {
               onMouseUp={onMouseUp}
               onMouseLeave={onMouseLeave}
             >
+              {(isDragging || Math.abs(dragDistance) > 0) && (
+                <div 
+                  className="drag-indicator"
+                  style={{
+                    transform: `translateX(${dragDistance > 0 ? '10px' : '-10px'})`,
+                    opacity: Math.min(Math.abs(dragDistance) / 100, 1)
+                  }}
+                >
+                  <img src={LogoSymbol} alt="" />
+                </div>
+              )}
+              
               {projects.map((project, index) => (
                 <div 
                   key={index} 
                   className={`project-card ${index === currentProject ? 'active' : ''}`}
                   data-index={index % 2 === 0 ? 'even' : 'odd'}
                   onTransitionEnd={() => index === currentProject && setIsTransitioning(false)}
+                  style={{
+                    transform: index === currentProject && isDragging 
+                      ? `translateX(${-touchDistance}px)` 
+                      : undefined
+                  }}
                 >
                   <div className="card-inner">
                     <div className="project-content">
