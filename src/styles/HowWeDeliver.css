@@ -102,7 +102,7 @@
 
 .timeline-content {
   background: rgba(255, 255, 255, 0.01);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 0.125rem solid rgba(85, 81, 119, 1);
   border-radius: 24px;
   padding: 40px;
   position: relative;
@@ -112,14 +112,40 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   margin-left: 40px;
   width: calc(100% - 40px);
+  transition: all 0.3s ease;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 0.0625rem;
+  background: linear-gradient(
+    180deg,
+    rgba(171, 40, 250, 0.5),
+    rgba(171, 40, 250, 0.15)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .timeline-content:hover {
+  border-color: rgba(171, 40, 250, 0.5);
+  box-shadow: 0 0 1.25rem rgba(171, 40, 250, 0.4);
   background: rgba(255, 255, 255, 0.02);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 8px 32px rgba(124, 21, 159, 0.08),
-    inset 0 0 20px rgba(124, 21, 159, 0.05);
+}
+
+.timeline-content:hover::before {
+  background: linear-gradient(
+    180deg,
+    rgba(171, 40, 250, 0.8),
+    rgba(171, 40, 250, 0.3)
+  );
 }
 
 .step-number {
@@ -302,4 +328,21 @@
       0 0 10px rgba(124, 21, 159, 0.4),
       0 0 20px rgba(124, 21, 159, 0.2);
   }
+} 
+
+.blur-top-effect {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+  min-width: 100px;
+  height: auto;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+  filter: blur(10px) brightness(1.1);
+  mix-blend-mode: screen;
 } 

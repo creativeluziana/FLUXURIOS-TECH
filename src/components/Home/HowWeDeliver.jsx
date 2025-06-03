@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import '../../styles/HowWeDeliver.css';
+import BlurEffect from '../../assets/Blur.png';
 
 const timelineSteps = [
   {
@@ -92,6 +93,7 @@ const TimelineStep = ({ step, index }) => {
 export default function HowWeDeliver() {
   return (
     <section className="how-we-deliver">
+      <img src={BlurEffect} alt="" className="blur-top-effect" />
       <div className="container">
         <div className="section-header">
           <h2>How We Deliver Fast</h2>

@@ -23,7 +23,9 @@ const HomeContent = () => {
         {/* Left Content */}
         <div className="left-content">
           <h1 className="hero-title">
-            Launch-Ready Websites and Apps. Built in One Week.
+            Launch-Ready<br />
+            Websites and Apps.<br />
+            Built in One Week.
           </h1>
           
           <p className="hero-description">
@@ -31,12 +33,8 @@ const HomeContent = () => {
           </p>
 
           <div className="buttons">
-            <Button2>
-              Start a Project
-            </Button2>
-            <Button1>
-              Explore Pages
-            </Button1>
+            <Button2>Start a Project</Button2>
+            <Button1>Explore Pages</Button1>
           </div>
 
           <div className="teams-section">
@@ -46,7 +44,7 @@ const HomeContent = () => {
             <div className="teams-grid">
               {teams.map((team, index) => (
                 <div key={index} className="team-item">
-                  <CheckCircle size={24} className="check-icon" />
+                  <CheckCircle size={20} className="check-icon" />
                   <span>{team}</span>
                 </div>
               ))}
@@ -54,15 +52,11 @@ const HomeContent = () => {
           </div>
         </div>
 
-        {/* Right Content - Dashboard Preview */}
+        {/* Right Content (Image) */}
         <div className="right-content">
           <div className="dashboard-container">
             <div className="glow-effect"></div>
-            <img 
-              src={HomeImage}
-              alt="Dashboard Preview" 
-              className="dashboard-image"
-            />
+            <img src={HomeImage} alt="Dashboard Preview" className="dashboard-image" />
           </div>
         </div>
       </div>

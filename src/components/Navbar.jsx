@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Navbar.css';
 import SmallButton from './SmallButton';
 import { HiMenu, HiX } from 'react-icons/hi';
+import FluxLogo from '../assets/IMP/FLUX_LOGO_upscaled.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +15,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="nav-container">
         <a href="/" className="nav-logo">
-          FLUXURIOUS TECH.
+          <img src={FluxLogo} alt="FLUXURIOUS TECH" className="logo-image" />
         </a>
 
         <button 
