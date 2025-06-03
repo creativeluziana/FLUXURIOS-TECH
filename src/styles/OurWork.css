@@ -151,25 +151,79 @@
   top: 0;
   left: 0;
   opacity: 0;
-  transform: translateX(100%);
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateX(0);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   border-radius: 1.5rem;
+  will-change: transform, opacity;
 }
 
 .project-card.active {
   opacity: 1;
   transform: translateX(0);
   z-index: 1;
-  animation: glowEntry 0.5s ease forwards;
 }
 
-.project-card.slide-next:not(.active) {
-  transform: translateX(-100%);
-}
-
-.project-card.slide-prev:not(.active) {
+/* Even cards slide right */
+.project-card[data-index="even"]:not(.active) {
   transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Odd cards slide left */
+.project-card[data-index="odd"]:not(.active) {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutToRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }
 
 /* Project content layout - left-aligned */
@@ -194,7 +248,8 @@
   background: rgba(13, 13, 27, 0.3);
   backdrop-filter: blur(0.625rem);
   border: 0.125rem solid rgba(85, 81, 119, 1);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, border-color, box-shadow;
 }
 
 .card-inner::before {
@@ -323,8 +378,9 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0.3125rem;
+  will-change: transform;
 }
 
 .project-image-container:hover .project-image {
@@ -342,7 +398,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .image-overlay span {
@@ -353,7 +409,8 @@
   background: linear-gradient(to right, #AB28FA, #7C159F);
   border-radius: 50px;
   transform: translateY(10px);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .project-image-container:hover .image-overlay {

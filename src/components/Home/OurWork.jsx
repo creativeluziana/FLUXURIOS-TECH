@@ -62,21 +62,18 @@ const OurWork = () => {
 
   const nextProject = () => {
     if (isTransitioning) return;
-    setDirection('next');
     setIsTransitioning(true);
     setCurrentProject((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
   const prevProject = () => {
     if (isTransitioning) return;
-    setDirection('prev');
     setIsTransitioning(true);
     setCurrentProject((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
 
   const goToProject = (index) => {
     if (isTransitioning || index === currentProject) return;
-    setDirection(index > currentProject ? 'next' : 'prev');
     setIsTransitioning(true);
     setCurrentProject(index);
   };
@@ -162,7 +159,7 @@ const OurWork = () => {
     if (isTransitioning) {
       const timer = setTimeout(() => {
         setIsTransitioning(false);
-      }, 500); // Match with CSS transition duration
+      }, 800); // Match with CSS transition duration (800ms)
       return () => clearTimeout(timer);
     }
   }, [isTransitioning]);
@@ -203,9 +200,8 @@ const OurWork = () => {
               {projects.map((project, index) => (
                 <div 
                   key={index} 
-                  className={`project-card ${index === currentProject ? 'active' : ''} ${
-                    direction === 'next' ? 'slide-next' : 'slide-prev'
-                  }`}
+                  className={`project-card ${index === currentProject ? 'active' : ''}`}
+                  data-index={index % 2 === 0 ? 'even' : 'odd'}
                   onTransitionEnd={() => index === currentProject && setIsTransitioning(false)}
                 >
                   <div className="card-inner">

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Footer.css';
+import FluxLogo from '../assets/IMP/FLUX_LOGO_upscaled.png';
 
 const Footer = () => {
   return (
@@ -7,7 +8,9 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="footer-title">FLUXURIOUS TECH.</h3>
+            <div className="footer-logo">
+              <img src={FluxLogo} alt="FLUXURIOUS TECH" />
+            </div>
             <p className="footer-description">
               Custom digital products, designed with precision and delivered with speed.
             </p>

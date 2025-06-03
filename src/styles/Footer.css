@@ -26,14 +26,20 @@
   color: white;
 }
 
-.footer-title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.8));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.footer-logo {
+  margin-bottom: 24px;
+}
+
+.footer-logo img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover img {
+  opacity: 1;
 }
 
 .footer-description {
