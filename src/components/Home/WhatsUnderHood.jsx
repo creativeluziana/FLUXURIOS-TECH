@@ -1,7 +1,8 @@
 import React from 'react';
-import '../../styles/WhatsUnderHood.css';
+import '../../styles/Home/WhatsUnderHood.css';
 import { Monitor, Box, Type, Smartphone, FileCode, Globe } from 'lucide-react';
 import pattern from '../../assets/whats_under_the_hood_pattern.png';
+import BlurEffect from '../../assets/Blur.png';
 
 const features = [
   {
@@ -39,6 +40,7 @@ const features = [
 export default function WhatsUnderHood() {
   return (
     <section className="whats-under-hood">
+      <img src={BlurEffect} alt="" className="blur-top-effect" />
       <div className="container">
         <div className="section-header">
           <h2>What's Under the Hood</h2>

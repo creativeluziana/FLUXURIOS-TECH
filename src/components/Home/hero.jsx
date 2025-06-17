@@ -2,7 +2,7 @@ import React from 'react';
 import Button1 from '../Button1';
 import Button2 from '../Button2';
 import { CheckCircle } from 'lucide-react';
-import '../../styles/Home.css';
+import '../../styles/Home/Home.css';
 import HomeImage from '../../assets/home_img1.png';
 import PatternImage from '../../assets/home_pattern.png';
 

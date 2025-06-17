@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../../styles/OurWork.css';
+import '../../styles/Home/OurWork.css';
 import landzyImage from '../../assets/landzy.png';
 import projectsImage from '../../assets/projects.png';
 import BlurEffect from '../../assets/Blur.png';

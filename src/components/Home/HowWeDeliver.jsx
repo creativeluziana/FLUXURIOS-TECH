@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import '../../styles/HowWeDeliver.css';
+import '../../styles/Home/HowWeDeliver.css';
 import BlurEffect from '../../assets/Blur.png';
 
 const timelineSteps = [

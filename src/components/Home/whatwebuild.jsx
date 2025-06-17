@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/WhatWeBuild.css';
+import '../../styles/Home/WhatWeBuild.css';
 import BlurEffect from '../../assets/Blur.png';
 import LandzyImage from '../../assets/landzy.png';
 

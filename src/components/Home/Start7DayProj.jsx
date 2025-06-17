@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Start7DayProj.css';
+import '../../styles/Home/Start7DayProj.css';
 import projectsImage from '../../assets/projects.png';
 
 const Start7DayProj = () => {

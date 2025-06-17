@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Testimonials.css';
+import '../../styles/Home/Testimonials.css';
 import BlurEffect from '../../assets/Blur.png';
 
 const Testimonials = () => {
