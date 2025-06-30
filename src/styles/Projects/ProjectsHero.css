@@ -1,0 +1,114 @@
+/* Only keep necessary hero section styles for ProjectsHero */
+.projects-hero-centered {
+  position: relative;
+  min-height: 0 !important;
+  padding: 0 !important;
+}
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  z-index: 1;
+}
+
+.projects-hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #e5e5e5;
+  margin-bottom: 0;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.projects-hero-title-secondary {
+  display: block;
+  color: #b3b3c6;
+  font-weight: 800;
+  font-size: 3.2rem;
+  margin-top: 0.2em;
+}
+
+.projects-hero-description {
+  display: none;
+}
+
+.blur-top-effect {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 37.5rem;
+  max-width: 90vw;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.7;
+  margin-top: -3.75rem;
+}
+
+.bottom-pattern {
+  box-shadow: none !important;
+  width: 100%;
+  max-width: none;
+}
+
+.projects-hero-fixed-height {
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 0;
+}
+
+.projects-hero-blur {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(1.1);
+  width: 40vw;
+  max-width: 600px;
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.projects-hero-pattern {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 1200px;
+  opacity: 0.8;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .projects-hero-fixed-height {
+    min-height: 18rem;
+    height: 22rem;
+    max-height: 28rem;
+  }
+  .projects-hero-title,
+  .projects-hero-title-secondary {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .centered-content {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+} 

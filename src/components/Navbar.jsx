@@ -3,6 +3,7 @@ import '../styles/Navbar.css';
 import SmallButton from './SmallButton';
 import { HiMenu, HiX } from 'react-icons/hi';
 import FluxLogo from '../assets/IMP/FLUX_LOGO_upscaled.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,11 +32,13 @@ const Navbar = () => {
         </button>
 
         <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <a href="#features" className="nav-link">Features</a>
-          <a href="#about" className="nav-link">About Us</a>
-          <a href="#services" className="nav-link">Services</a>
-          <a href="#pricing" className="nav-link">Pricing</a>
-          <SmallButton>Login</SmallButton>
+          <Link to="/about" className="nav-link">About Us</Link>
+          <Link to="/services" className="nav-link">Services</Link>
+          <Link to="/projects" className="nav-link">Projects</Link>
+          <Link to="/pricing" className="nav-link">Pricing</Link>
+          <Link to="/contact" className="nav-link">
+            <SmallButton>Contact Us</SmallButton>
+          </Link>
         </div>
       </div>
     </nav>
