@@ -5,6 +5,14 @@ import BottomPattern from '../../assets/bottom_pattern_plain.png';
 import { motion } from 'framer-motion';
 import Button2 from '../Button2';
 import Button1 from '../Button1';
+import { Link, useLocation } from 'react-router-dom';
+import NetwealthIndiaImage from '../../assets/PROJECT/WebDev/WebDev/NetwealthIndia.png';
+import GymWebsiteImage from '../../assets/PROJECT/WebDev/WebDev/GymWebsite.png';
+import LuxuryVacationsImage from '../../assets/PROJECT/WebDev/WebDev/LuxuryVacations.png';
+import BaysideSportsImage from '../../assets/PROJECT/WebDev/WebDev/BaysideSports.png';
+import AarohanImage from '../../assets/PROJECT/WebDev/WebDesign/Aarohan.png';
+import StudentDashboardImage from '../../assets/PROJECT/WebDev/WebDesign/Student_Dashboard.png';
+import FashionWebDesignImage from '../../assets/PROJECT/WebDev/WebDesign/FashionWebDesign.png';
 
 const borderColor = 'rgba(85,81,119,1)';
 const borderHover = 'rgba(171,40,250,0.5)';
@@ -26,19 +34,19 @@ const cardVariants = {
 
 const PROJECTS = {
   'Web Design': [
-    { id: 1, reverse: false, title: 'AI Distraction Free Learning Platform', desc: 'Custom digital products, designed with precision and delivered with speed — no shortcuts, no compromises.' },
-    { id: 2, reverse: true, title: 'Modern Portfolio Website', desc: 'A sleek, responsive portfolio for creative professionals.' },
-    { id: 3, reverse: false, title: 'Landing Page UI Kit', desc: 'A conversion-focused landing page for SaaS startups.' },
+    { id: 1, reverse: false, title: 'Aarohan', subheader: 'Education for every dream', description: 'Designed a platform to uplift underserved students—accessible, inspiring, and built to break barriers.', image: AarohanImage },
+    { id: 2, reverse: true, title: 'Student Dashboard', subheader: 'One hub. Everything students need', description: 'Designed a platform to uplift underserved students—accessible, inspiring, and built to break barriers.', image: StudentDashboardImage },
+    { id: 3, reverse: false, title: 'Fashion Website', subheader: 'Style that speaks digital', description: 'Built a bold, trend-forward site where aesthetics and usability walk the runway together.', image: FashionWebDesignImage },
   ],
   'Web Development': [
-    { id: 1, reverse: false, title: 'E-Commerce Backend', desc: 'Robust backend for scalable online stores.' },
-    { id: 2, reverse: true, title: 'API Integration Suite', desc: 'Seamless API integrations for modern web apps.' },
-    { id: 3, reverse: false, title: 'Real-Time Dashboard', desc: 'Live analytics dashboard for business insights.' },
+    { id: 1, reverse: false, title: 'NetWealth India', subheader: 'Premium Website for a Modern Fintech Brand', description: 'Built a sleek, responsive platform for a finance company offering credit, loans, insurance, and investment tools' },
+    { id: 2, reverse: true, title: 'Gym Website', subheader: 'Modern, powerful, and built to move', description: 'Sleek design. Fast access. Made for members who lift, train, and hustle—and for the trainers who keep them going.', image: GymWebsiteImage },
+    { id: 3, reverse: false, title: 'Luxe Escapes', subheader: 'Luxury travel, front and center', description: 'Crafted a visually immersive experience for high-end getaways—where stunning design meets one-click bookings.', image: LuxuryVacationsImage },
+    { id: 4, reverse: true, title: 'Bayside Sports Redesign', subheader: 'Scalable Online Store', description: 'Revamped the site for speed, clarity, and energy—so fans and players connect with the action in seconds.', image: BaysideSportsImage },
   ],
   'App Development': [
-    { id: 1, reverse: false, title: 'Productivity Mobile App', desc: 'A distraction-free productivity app for teams.' },
-    { id: 2, reverse: true, title: 'Fitness Tracker', desc: 'Track workouts and progress with a beautiful UI.' },
-    { id: 3, reverse: false, title: 'Social Chat App', desc: 'A real-time chat app with group and private messaging.' },
+    { id: 1, reverse: false, title: 'Productivity Mobile App', subheader: 'Team Productivity', description: 'A distraction-free productivity app for teams.' },
+    { id: 2, reverse: true, title: 'Fitness Tracker', subheader: 'Health & Wellness', description: 'Track workouts and progress with a beautiful UI.' }
   ],
 };
 
@@ -54,8 +62,18 @@ function useIsMobile(breakpoint = 700) {
   return isMobile;
 }
 
-const ProjectCard = ({ reverse, index, title, desc, isMobile }) => {
+const ProjectCard = ({ reverse, index, title, subheader, description, image, isMobile }) => {
   const [hover, setHover] = React.useState(false);
+  const isFirstWebDev = title === 'NetWealth India';
+  const isSecondWebDev = title === 'Gym Website';
+  const isThirdWebDev = title === 'Luxe Escapes';
+  const isFourthWebDev = title === 'Bayside Sports Redesign';
+  const isFirstWebDesign = title === 'Aarohan';
+  const isSecondWebDesign = title === 'Student Dashboard';
+  const isThirdWebDesign = title === 'Fashion Website';
+  const isFirstAppDev = title === 'Productivity Mobile App';
+  const isSecondAppDev = title === 'Fitness Tracker';
+  const displayImage = image || (isFirstWebDev ? NetwealthIndiaImage : ProjectImage);
   // For mobile, always image first, then text, but keep desktop sizing
   const cardContent = isMobile ? (
     <>
@@ -98,7 +116,7 @@ const ProjectCard = ({ reverse, index, title, desc, isMobile }) => {
               boxShadow: hover ? '0 0 20px 0 rgba(171,40,250,0.4)' : 'none',
             }}
           >
-            <img src={ProjectImage} alt="Project Screenshot" style={{
+            <img src={displayImage} alt="Project Screenshot" style={{
               width: '95%',
               height: '90%',
               objectFit: 'contain',
@@ -112,26 +130,104 @@ const ProjectCard = ({ reverse, index, title, desc, isMobile }) => {
       </div>
       {/* Text/Info */}
       <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <div style={{ fontWeight: 700, fontSize: '2.8rem', color: '#fff', marginBottom: 24, lineHeight: 1.1, textAlign: 'center' }}>
-          {title.split(' ').map((word, i) => (i === 2 ? <React.Fragment key={i}><br />{word} </React.Fragment> : word + ' '))}
+        <div style={{ fontWeight: 700, fontSize: '2.8rem', color: '#fff', marginBottom: 12, lineHeight: 1.1, textAlign: 'center' }}>
+          {title}
         </div>
+        <div style={{ color: '#bdbdbd', fontWeight: 700, fontSize: '1.25rem', marginBottom: 12, textAlign: 'center', fontStyle: 'italic' }}>{subheader}</div>
         <div style={{ color: '#e0e0e0', fontSize: '1.15rem', marginBottom: 40, lineHeight: 1.6, textAlign: 'center' }}>
-          {desc}
+          {description}
         </div>
-        <Button2 onClick={() => alert('View Project clicked!')} style={{ alignSelf: 'center' }}>View Project</Button2>
+        {isFirstAppDev ? (
+          <Link to="/projects/appdev/1" style={{ alignSelf: 'center', textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isSecondAppDev ? (
+          <Link to="/projects/appdev/2" style={{ alignSelf: 'center', textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isFirstWebDesign ? (
+          <Link to="/projects/webdesign/1" style={{ alignSelf: 'center', textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isSecondWebDesign ? (
+          <Link to="/projects/webdesign/2" style={{ alignSelf: 'center', textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isThirdWebDesign ? (
+          <Link to="/projects/webdesign/3" style={{ alignSelf: 'center', textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isFirstWebDev ? (
+          <Link to="/projects/webdev/1" style={{ alignSelf: 'center', textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isSecondWebDev ? (
+          <Link to="/projects/webdev/2" style={{ alignSelf: 'center', textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isThirdWebDev ? (
+          <Link to="/projects/webdev/3" style={{ alignSelf: 'center', textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isFourthWebDev ? (
+          <Link to="/projects/webdev/4" style={{ alignSelf: 'center', textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : (
+          <Button2 onClick={() => alert('View Project clicked!')} style={{ alignSelf: 'center' }}>View Project</Button2>
+        )}
       </div>
     </>
   ) : (
     <>
       {/* Left: Info */}
       <div style={{ flex: 1, maxWidth: 520, textAlign: 'left' }}>
-        <div style={{ fontWeight: 700, fontSize: '2.8rem', color: '#fff', marginBottom: 24, lineHeight: 1.1 }}>
-          {title.split(' ').map((word, i) => (i === 2 ? <React.Fragment key={i}><br />{word} </React.Fragment> : word + ' '))}
+        <div style={{ fontWeight: 700, fontSize: '2.8rem', color: '#fff', marginBottom: 12, lineHeight: 1.1 }}>
+          {title}
         </div>
+        <div style={{ color: '#bdbdbd', fontWeight: 700, fontSize: '1.25rem', marginBottom: 12, fontStyle: 'italic' }}>{subheader}</div>
         <div style={{ color: '#e0e0e0', fontSize: '1.15rem', marginBottom: 40, lineHeight: 1.6 }}>
-          {desc}
+          {description}
         </div>
-        <Button2 onClick={() => alert('View Project clicked!')}>View Project</Button2>
+        {isFirstAppDev ? (
+          <Link to="/projects/appdev/1" style={{ textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isSecondAppDev ? (
+          <Link to="/projects/appdev/2" style={{ textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isFirstWebDesign ? (
+          <Link to="/projects/webdesign/1" style={{ textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isSecondWebDesign ? (
+          <Link to="/projects/webdesign/2" style={{ textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isThirdWebDesign ? (
+          <Link to="/projects/webdesign/3" style={{ textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isFirstWebDev ? (
+          <Link to="/projects/webdev/1" style={{ textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isSecondWebDev ? (
+          <Link to="/projects/webdev/2" style={{ textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isThirdWebDev ? (
+          <Link to="/projects/webdev/3" style={{ textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : isFourthWebDev ? (
+          <Link to="/projects/webdev/4" style={{ textDecoration: 'none' }}>
+            <Button2>View Project</Button2>
+          </Link>
+        ) : (
+          <Button2 onClick={() => alert('View Project clicked!')}>View Project</Button2>
+        )}
       </div>
       {/* Right: Double Border Image Card with What We Build colors */}
       <div style={{ flex: 1.2, display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 0 }}>
@@ -168,7 +264,7 @@ const ProjectCard = ({ reverse, index, title, desc, isMobile }) => {
               boxShadow: hover ? '0 0 20px 0 rgba(171,40,250,0.4)' : 'none',
             }}
           >
-            <img src={ProjectImage} alt="Project Screenshot" style={{
+            <img src={displayImage} alt="Project Screenshot" style={{
               width: '95%',
               height: '90%',
               objectFit: 'contain',
@@ -210,7 +306,17 @@ const ProjectCard = ({ reverse, index, title, desc, isMobile }) => {
 };
 
 const ProjectsContent = () => {
-  const [selected, setSelected] = React.useState(FILTERS[0]);
+  const location = useLocation();
+  // Get section from query param
+  const params = new URLSearchParams(location.search);
+  const sectionParam = params.get('section');
+  const sectionMap = {
+    webdesign: 'Web Design',
+    webdev: 'Web Development',
+    appdev: 'App Development',
+  };
+  const initialSection = sectionMap[sectionParam] || FILTERS[0];
+  const [selected, setSelected] = React.useState(initialSection);
   const projects = PROJECTS[selected];
   const isMobile = useIsMobile();
   return (
@@ -218,36 +324,88 @@ const ProjectsContent = () => {
       {/* Top Blur Effect */}
       <img src={BlurImage} alt="Blur" style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: isMobile ? '90vw' : '60vw', maxWidth: 900, minWidth: 180, opacity: 0.7, filter: 'blur(2px)', zIndex: 0, pointerEvents: 'none' }} />
       {/* Filter Buttons */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: isMobile ? '0.5rem' : '1.5rem',
-        marginTop: isMobile ? 40 : 80,
-        marginBottom: isMobile ? 32 : 64,
-        zIndex: 1,
-        flexWrap: isMobile ? 'wrap' : 'nowrap',
-        width: isMobile ? '100%' : 'auto',
-      }}>
-        {FILTERS.map((filter) => (
-          selected === filter ? (
-            <Button2
-              key={filter}
-              onClick={() => setSelected(filter)}
-              style={{ minWidth: isMobile ? 120 : 0 }}
-            >
-              {filter}
-            </Button2>
-          ) : (
-            <Button1
-            key={filter}
-            onClick={() => setSelected(filter)}
-              style={{ minWidth: isMobile ? 120 : 0 }}
-          >
-            {filter}
-            </Button1>
-          )
-        ))}
-      </div>
+      {isMobile ? (
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '100%',
+          marginTop: 40,
+          marginBottom: 32,
+          zIndex: 1,
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', width: '100%' }}>
+            {FILTERS.slice(0, 2).map((filter) => (
+              selected === filter ? (
+                <Button2
+                  key={filter}
+                  onClick={() => setSelected(filter)}
+                >
+                  {filter}
+                </Button2>
+              ) : (
+                <Button1
+                  key={filter}
+                  onClick={() => setSelected(filter)}
+                >
+                  {filter}
+                </Button1>
+              )
+            ))}
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem', width: '100%' }}>
+            {(() => {
+              const filter = FILTERS[2];
+              return selected === filter ? (
+                <Button2
+                  key={filter}
+                  onClick={() => setSelected(filter)}
+                >
+                  {filter}
+                </Button2>
+              ) : (
+                <Button1
+                  key={filter}
+                  onClick={() => setSelected(filter)}
+                >
+                  {filter}
+                </Button1>
+              );
+            })()}
+          </div>
+        </div>
+      ) : (
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '1.5rem',
+          marginTop: 80,
+          marginBottom: 64,
+          zIndex: 1,
+          flexWrap: 'nowrap',
+          width: 'auto',
+        }}>
+          {FILTERS.map((filter) => (
+            selected === filter ? (
+              <Button2
+                key={filter}
+                onClick={() => setSelected(filter)}
+                style={{ minWidth: 0 }}
+              >
+                {filter}
+              </Button2>
+            ) : (
+              <Button1
+                key={filter}
+                onClick={() => setSelected(filter)}
+                style={{ minWidth: 0 }}
+              >
+                {filter}
+              </Button1>
+            )
+          ))}
+        </div>
+      )}
       {/* Project Cards */}
       {projects.map((proj, i) => (
         <ProjectCard
@@ -255,7 +413,9 @@ const ProjectsContent = () => {
           reverse={proj.reverse}
           index={i}
           title={proj.title}
-          desc={proj.desc}
+          subheader={proj.subheader}
+          description={proj.description}
+          image={proj.image}
           isMobile={isMobile}
         />
       ))}
