@@ -1,15 +1,15 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ContactUsComponent from '../components/ContactUs';
+import WhatsApp from '../components/WhatsApp';
 
 const ContactUs = () => {
   return (
     <>
       <Navbar />
-      <div className="contactus-container">
-        <h1>Contact Us</h1>
-        <p>This is the Contact Us page. Add your contact form or details here.</p>
-      </div>
+      <ContactUsComponent />
+      <WhatsApp />
       <Footer />
     </>
   );

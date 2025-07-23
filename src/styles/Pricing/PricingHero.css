@@ -1,3 +1,100 @@
+.pricing-hero {
+  width: 100%;
+  background: #0A0A1B;
+  padding: 120px 0 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 80px; /* Space below navbar */
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-hero-blur-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw;
+  max-width: 900px;
+  min-width: 180px;
+  opacity: 0.7;
+  filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pricing-hero-bottom-pattern {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0.3;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pricing-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 24px;
+  animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.pricing-hero-title {
+  color: #fff;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter 3s steps(20) 1s both;
+}
+
+.pricing-hero-title .highlight {
+  color: #fff;
+  font-weight: 800;
+}
+
+.pricing-hero-description {
+  color: #bdbdbd;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out 2s both;
+}
+
+/* Animations */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .home-container {
     min-height: 100vh;
     width: 100%;
@@ -335,5 +432,27 @@
   
     .team-item {
       font-size: 0.875rem;
+    }
+  }
+
+/* Responsive styles for PricingHero */
+@media (max-width: 768px) {
+  .pricing-hero {
+    padding: 80px 0 60px 0;
+    margin-top: 60px;
+  }
+  
+  .pricing-hero-content {
+    padding: 0 16px;
+  }
+  
+  .pricing-hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 20px;
+  }
+  
+  .pricing-hero-description {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    max-width: 100%;
     }
   } 

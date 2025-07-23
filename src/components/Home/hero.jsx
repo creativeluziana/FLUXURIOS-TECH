@@ -33,8 +33,8 @@ const HomeContent = () => {
           </p>
 
           <div className="buttons">
-            <Button2>Start a Project</Button2>
-            <Button1>Explore Pages</Button1>
+            <Button2 to="/contact">Start a Project</Button2>
+            <Button1 to="/projects">Explore Pages</Button1>
           </div>
 
           <div className="teams-section">

@@ -20,7 +20,7 @@ const ServicesHero = () => {
           </p>
 
           <div className="buttons">
-            <Button2>Explore Features</Button2>
+            <Button2 to="/projects">Explore Features</Button2>
           </div>
 
           

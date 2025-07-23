@@ -56,33 +56,86 @@
   width: 100%;
 }
 
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .design-flex-row {
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px 0;
+  }
+  
+  .design-info {
+    order: 2;
+    text-align: center !important;
+    max-width: 100%;
+    padding: 0 24px;
+    align-items: center !important;
+    justify-content: center;
+  }
+  
+  .design-image-outer {
+    order: 1;
+    flex: 1;
+    margin-bottom: 24px;
+  }
+  
+  .design-image-card {
+    width: 90vw;
+    max-width: 400px;
+    height: 56vw;
+    max-height: 280px;
+  }
+  
+  .design-image-inner {
+    width: 85vw;
+    max-width: 360px;
+    height: 48vw;
+    max-height: 240px;
+  }
+  
+  .design-content {
+    padding: 32px 0;
+    margin-top: 32px;
+  }
+  
+  /* Ensure text elements are centered on mobile */
+  .design-info .design-title,
+  .design-info .design-subheader,
+  .design-info .design-description {
+    text-align: center !important;
+  }
+}
+
 .design-info {
   flex: 1;
   max-width: 520px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .design-title {
   font-weight: 700;
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   color: #fff;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   line-height: 1.1;
 }
 
 .design-subheader {
   color: #bdbdbd;
   font-weight: 700;
-  font-size: 1.25rem;
-  margin-bottom: 12px;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-bottom: 8px;
   font-style: italic;
 }
 
 .design-description {
   color: #e0e0e0;
-  font-size: 1.15rem;
-  margin-bottom: 40px;
-  line-height: 1.6;
+  font-size: clamp(0.9rem, 2.2vw, 1.15rem);
+  margin-bottom: 14px;
+  line-height: 1.4;
 }
 
 .design-image-outer {
@@ -138,4 +191,12 @@
   border-radius: 0.7rem;
   background: #18182a;
   margin: 0;
+}
+
+/* Reduce View Project button width */
+.design-info button,
+.design-info a {
+  width: fit-content !important;
+  min-width: 120px !important;
+  max-width: 200px !important;
 }
