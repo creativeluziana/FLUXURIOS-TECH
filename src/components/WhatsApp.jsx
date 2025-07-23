@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/WhatsApp.css';
 import Button2 from './Button2';
-import WhatsAppImage from '../assets/Whatsapp.png';
+import WhatsAppImage from '../assets/WhatsApp.png';
 import BlurImage from '../assets/Blur.png';
 
 const WhatsApp = () => {

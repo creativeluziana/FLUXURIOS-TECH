@@ -6,7 +6,7 @@ import '../styles/AboutUs.css';
 import BlurImage from '../assets/Blur.png';
 import BottomPattern from '../assets/bottom_pattern.png';
 import AboutUsHeroImage from '../assets/AboutUsHero.png';
-import TeamworkImage from '../assets/Teamwork.png';
+import TeamWorkImage from '../assets/TeamWork.png';
 
 const AboutUs = () => {
   const stats = [
@@ -69,7 +69,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="team-image">
-            <img src={TeamworkImage} alt="Teamwork" />
+            <img src={TeamWorkImage} alt="Teamwork" />
           </div>
         </div>
       </section>
