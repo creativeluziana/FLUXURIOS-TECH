@@ -3,6 +3,7 @@ import '../../styles/Services/OurServices.css';
 import { Monitor, Box, Type, Smartphone, FileCode, Globe } from 'lucide-react';
 import pattern from '../../assets/whats_under_the_hood_pattern.png';
 import BlurEffect from '../../assets/Blur.png';
+import { motion } from 'framer-motion';
 
 const features = [
   {
@@ -43,11 +44,38 @@ export default function OurServices() {
       <img src={BlurEffect} alt="" className="blur-top-effect" />
       <div className="container">
         <div className="section-header">
-          <h2>Our Services</h2>
-          <p>
+          <motion.h2
+            initial={{ opacity: 0, y: -60, scale: 0.8 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
+            Our Services
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: -40, scale: 0.9 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: 0.3
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
             A seamless build process powered by performance-first code, scalable design<br />
             systems, and clean delivery — because good tech should feel invisible.
-          </p>
+          </motion.p>
         </div>
 
         <div className="features-grid">

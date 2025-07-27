@@ -1,39 +1,107 @@
 import React from 'react';
 import '../../styles/Home/WhatWeBuild.css';
 import BlurEffect from '../../assets/Blur.png';
-import LandzyImage from '../../assets/landzy.png';
+import HomeWebDevelopment from '../../assets/HomeWevDevelipment.png';
+import HomeMobileDevelopment from '../../assets/HomeMobileDevelopment.png';
+import HomeWebDesign from '../../assets/HomeWebDesign.png';
+import { motion } from 'framer-motion';
 
 const services = [
   {
     title: 'Websites',
-    image: LandzyImage,
+    image: HomeWebDesign,
   },
   {
     title: 'Mobile Apps',
-    image: LandzyImage,
+    image: HomeMobileDevelopment,
   },
   {
     title: 'Backend Systems',
-    image: LandzyImage,
+    image: HomeWebDevelopment,
   },
 ];
 
 export default function WhatWeBuild() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: -100,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
   return (
     <section className="what-we-build">
       <img src={BlurEffect} alt="" className="blur-top-effect" />
       <div className="container">
         <div className="section-header">
-          <h2>What We Build</h2>
-          <p>
+          <motion.h2
+            initial={{ opacity: 0, y: -60, scale: 0.8 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
+            What We Build
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: -40, scale: 0.9 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: 0.3
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
             High-performance websites, sleek mobile apps, and powerful<br />
             backend systems — all delivered in just one week.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="cards-grid">
+        <motion.div 
+          className="cards-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.3 }}
+        >
           {services.map(({ title, image }, index) => (
-            <div key={index} className="card-wrapper">
+            <motion.div 
+              key={index} 
+              className="card-wrapper"
+              variants={cardVariants}
+            >
               <div className="card-outer-border">
                 <div className="card-inner">
                   <div className="card-content">
@@ -44,9 +112,9 @@ export default function WhatWeBuild() {
                 </div>
                 <h3 className="card-title">{title}</h3>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

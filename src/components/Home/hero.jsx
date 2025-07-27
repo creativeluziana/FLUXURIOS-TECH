@@ -22,7 +22,7 @@ const HomeContent = () => {
       <div className="content">
         {/* Left Content */}
         <div className="left-content">
-          <h1 className="hero-title">
+          <h1 className="home-hero-title">
             Launch-Ready<br />
             Websites and Apps.<br />
             Built in One Week.

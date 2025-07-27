@@ -4,6 +4,7 @@ import '../../styles/Pricing/PricingPlans.css';
 import Button2 from '../Button2.jsx';
 import BlurImage from '../../assets/Blur.png';
 import BottomPattern from '../../assets/bottom_pattern.png';
+import { motion } from 'framer-motion';
 
 const PricingPlans = () => {
   const plans = [
@@ -60,6 +61,69 @@ const PricingPlans = () => {
     }
   ];
 
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: -60,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const subtitleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: -40,
+      scale: 0.9
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0.3
+      }
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: -100,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
   return (
     <div className="pricing-plans">
       {/* Top Blur Image */}
@@ -67,17 +131,38 @@ const PricingPlans = () => {
       
       {/* Header Section */}
       <div className="pricing-plans-header">
-        <h2 className="pricing-plans-title">Our Service Packages</h2>
-        <p className="pricing-plans-subtitle">
+        <motion.h2 
+          className="pricing-plans-title"
+          variants={titleVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.3 }}
+        >
+          Our Service Packages
+        </motion.h2>
+        <motion.p 
+          className="pricing-plans-subtitle"
+          variants={subtitleVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.3 }}
+        >
           A seamless build process powered by performance-first code, scalable design systems, and clean delivery.
-        </p>
+        </motion.p>
       </div>
       
-      <div className="pricing-plans-container">
+      <motion.div 
+        className="pricing-plans-container"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.3 }}
+      >
         {plans.map((plan, index) => (
-          <div 
+          <motion.div 
             key={index} 
             className={`pricing-card ${plan.isPopular ? 'popular' : ''}`}
+            variants={cardVariants}
           >
             <div className={`plan-label ${plan.labelColor}`}>
               {plan.name}
@@ -99,9 +184,9 @@ const PricingPlans = () => {
             <Button2 to="/contact" className="trial-button">
               Start 7-days Free Trial
             </Button2>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       
       {/* Bottom Pattern Image */}
       <img src={BottomPattern} alt="Bottom Pattern" className="pricing-plans-bottom-pattern" />

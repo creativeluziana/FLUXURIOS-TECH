@@ -96,11 +96,38 @@ export default function HowWeDeliver() {
       <img src={BlurEffect} alt="" className="blur-top-effect" />
       <div className="container">
         <div className="section-header">
-          <h2>How We Deliver Fast</h2>
-          <p>
+          <motion.h2
+            initial={{ opacity: 0, y: -60, scale: 0.8 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
+            How We Deliver Fast
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: -40, scale: 0.9 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: 0.3
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
             A streamlined, day-by-day build process — engineered for<br />
             speed, clarity, and launch without lag.
-          </p>
+          </motion.p>
         </div>
 
         <div className="timeline">

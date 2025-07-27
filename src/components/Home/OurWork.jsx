@@ -1,53 +1,64 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../../styles/Home/OurWork.css';
-import landzyImage from '../../assets/landzy.png';
-import projectsImage from '../../assets/projects.png';
 import BlurEffect from '../../assets/Blur.png';
 import LogoSymbol from '../../assets/IMP/LOGO_SYMBOL.png';
+import { motion } from 'framer-motion';
+
+// WebDev Projects
+import BaysideSports from '../../assets/PROJECT/WebDev/WebDev/BaysideSports.png';
+import GymWebsite from '../../assets/PROJECT/WebDev/WebDev/GymWebsite.png';
+import NetwealthIndia from '../../assets/PROJECT/WebDev/WebDev/NetwealthIndia.png';
+
+// WebDesign Projects
+import Aarohan from '../../assets/PROJECT/WebDev/WebDesign/Aarohan.png';
+import FashionWebDesign from '../../assets/PROJECT/WebDev/WebDesign/FashionWebDesign.png';
+import StudentDashboard from '../../assets/PROJECT/WebDev/WebDesign/Student_Dashboard.png';
 
 const OurWork = () => {
   const projects = [
+    // WebDev Projects
     {
-      title: "Landzy Real Estate",
-      categories: ["Web Platform", "Real Estate", "Frontend"],
-      image: projectsImage,
-      description: "Modern real estate platform for property management and listings",
-      url: "/projects/landzy-real-estate"
+      title: "Bayside Sports",
+      categories: ["Web Development", "Sports", "E-commerce"],
+      image: BaysideSports,
+      description: "Modern sports equipment e-commerce platform with advanced features and seamless user experience",
+      url: "/projects/webdev/1"
     },
     {
-      title: "Landzy Property Hub",
-      categories: ["Mobile App", "Real Estate", "iOS", "Android"],
-      image: projectsImage,
-      description: "Mobile application for seamless property browsing and management",
-      url: "/projects/landzy-property-hub"
+      title: "Gym Website",
+      categories: ["Web Development", "Fitness", "Membership"],
+      image: GymWebsite,
+      description: "Comprehensive gym website with membership management and class booking system",
+      url: "/projects/webdev/2"
     },
     {
-      title: "Landzy Admin Dashboard",
-      categories: ["Web Application", "Data Analytics", "Backend", "Admin"],
-      image: projectsImage,
-      description: "Comprehensive admin panel for real estate management",
-      url: "/projects/landzy-admin-dashboard"
+      title: "NetWealth India",
+      categories: ["Web Development", "Finance", "Investment"],
+      image: NetwealthIndia,
+      description: "Financial services platform for investment management and wealth planning",
+      url: "/projects/webdev/3"
+    },
+    // WebDesign Projects
+    {
+      title: "Aarohan",
+      categories: ["Web Design", "Education", "UI/UX"],
+      image: Aarohan,
+      description: "Educational platform with modern design and intuitive user interface",
+      url: "/projects/webdesign/1"
     },
     {
-      title: "Landzy Agent Portal",
-      categories: ["Web & Mobile", "CRM", "Real Estate"],
-      image: projectsImage,
-      description: "Dedicated platform for real estate agents and brokers",
-      url: "/projects/landzy-agent-portal"
+      title: "Fashion Web Design",
+      categories: ["Web Design", "Fashion", "E-commerce"],
+      image: FashionWebDesign,
+      description: "Stylish fashion e-commerce website with stunning visual design",
+      url: "/projects/webdesign/2"
     },
     {
-      title: "Landzy Analytics Suite",
-      categories: ["Data Analytics", "Backend", "Admin"],
-      image: projectsImage,
-      description: "Advanced analytics and reporting platform for real estate insights",
-      url: "/projects/landzy-analytics"
-    },
-    {
-      title: "Landzy AI Assistant",
-      categories: ["AI Solution", "Backend", "Admin"],
-      image: projectsImage,
-      description: "Intelligent virtual assistant for property recommendations",
-      url: "/projects/landzy-ai-assistant"
+      title: "Student Dashboard",
+      categories: ["Web Design", "Education", "Dashboard"],
+      image: StudentDashboard,
+      description: "Comprehensive student dashboard with modern design and analytics",
+      url: "/projects/webdesign/3"
     }
   ];
 
@@ -191,8 +202,37 @@ const OurWork = () => {
       <img src={BlurEffect} alt="" className="blur-top-effect" />
       <div className="container">
         <div className="section-header">
-          <h2>Our Recent Work</h2>
-          <p>Transforming ideas into digital excellence. Here's a glimpse of our latest projects.</p>
+          <motion.h2
+            initial={{ opacity: 0, y: -60, scale: 0.8 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
+            Our Recent Work
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: -40, scale: 0.9 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: 0.3
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
+            Transforming ideas into digital excellence. Here's a glimpse of our latest projects.
+          </motion.p>
         </div>
 
         <div className="project-showcase">

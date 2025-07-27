@@ -62,6 +62,16 @@ function useIsMobile(breakpoint = 700) {
   return isMobile;
 }
 
+function useIsVerySmallScreen(breakpoint = 490) {
+  const [isVerySmall, setIsVerySmall] = React.useState(() => window.innerWidth <= breakpoint);
+  React.useEffect(() => {
+    const onResize = () => setIsVerySmall(window.innerWidth <= breakpoint);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [breakpoint]);
+  return isVerySmall;
+}
+
 const ProjectCard = ({ reverse, index, title, subheader, description, image, isMobile }) => {
   const [hover, setHover] = React.useState(false);
   const isFirstWebDev = title === 'NetWealth India';
@@ -319,6 +329,7 @@ const ProjectsContent = () => {
   const [selected, setSelected] = React.useState(initialSection);
   const projects = PROJECTS[selected];
   const isMobile = useIsMobile();
+  const isVerySmallScreen = useIsVerySmallScreen(490);
   return (
     <div style={{ width: '100%', minHeight: '100vh', background: '#0A0A1B', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: isMobile ? '0 16px' : 0 }}>
       {/* Top Blur Effect */}
@@ -327,52 +338,127 @@ const ProjectsContent = () => {
       {isMobile ? (
         <div style={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: isVerySmallScreen ? 'row' : 'column',
           alignItems: 'center',
           width: '100%',
           marginTop: 40,
           marginBottom: 32,
           zIndex: 1,
+          gap: isVerySmallScreen ? '0.25rem' : '0.5rem',
+          flexWrap: isVerySmallScreen ? 'wrap' : 'nowrap',
+          justifyContent: 'center',
         }}>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', width: '100%' }}>
-            {FILTERS.slice(0, 2).map((filter) => (
-              selected === filter ? (
-                <Button2
-                  key={filter}
-                  onClick={() => setSelected(filter)}
-                >
-                  {filter}
-                </Button2>
-              ) : (
-                <Button1
-                  key={filter}
-                  onClick={() => setSelected(filter)}
-                >
-                  {filter}
-                </Button1>
-              )
-            ))}
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem', width: '100%' }}>
-            {(() => {
-              const filter = FILTERS[2];
-              return selected === filter ? (
-                <Button2
-                  key={filter}
-                  onClick={() => setSelected(filter)}
-                >
-                  {filter}
-                </Button2>
-              ) : (
-                <Button1
-                  key={filter}
-                  onClick={() => setSelected(filter)}
-                >
-                  {filter}
-                </Button1>
-              );
-            })()}
-          </div>
+          {isVerySmallScreen ? (
+            // 2x1 layout for very small screens
+            <>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '0.25rem', width: '100%' }}>
+                {FILTERS.slice(0, 2).map((filter) => (
+                  selected === filter ? (
+                    <Button2
+                      key={filter}
+                      onClick={() => setSelected(filter)}
+                      style={{ 
+                        fontSize: '0.75rem',
+                        padding: '8px 12px',
+                        minWidth: 'auto',
+                        width: 'calc(50% - 0.125rem)'
+                      }}
+                    >
+                      {filter}
+                    </Button2>
+                  ) : (
+                    <Button1
+                      key={filter}
+                      onClick={() => setSelected(filter)}
+                      style={{ 
+                        fontSize: '0.75rem',
+                        padding: '8px 12px',
+                        minWidth: 'auto',
+                        width: 'calc(50% - 0.125rem)'
+                      }}
+                    >
+                      {filter}
+                    </Button1>
+                  )
+                ))}
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.25rem', width: '100%' }}>
+                {(() => {
+                  const filter = FILTERS[2];
+                  return selected === filter ? (
+                    <Button2
+                      key={filter}
+                      onClick={() => setSelected(filter)}
+                      style={{ 
+                        fontSize: '0.75rem',
+                        padding: '8px 12px',
+                        minWidth: 'auto',
+                        width: 'calc(50% - 0.125rem)'
+                      }}
+                    >
+                      {filter}
+                    </Button2>
+                  ) : (
+                    <Button1
+                      key={filter}
+                      onClick={() => setSelected(filter)}
+                      style={{ 
+                        fontSize: '0.75rem',
+                        padding: '8px 12px',
+                        minWidth: 'auto',
+                        width: 'calc(50% - 0.125rem)'
+                      }}
+                    >
+                      {filter}
+                    </Button1>
+                  );
+                })()}
+              </div>
+            </>
+          ) : (
+            // Original 2x1 layout for larger mobile screens
+            <>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', width: '100%' }}>
+                {FILTERS.slice(0, 2).map((filter) => (
+                  selected === filter ? (
+                    <Button2
+                      key={filter}
+                      onClick={() => setSelected(filter)}
+                    >
+                      {filter}
+                    </Button2>
+                  ) : (
+                    <Button1
+                      key={filter}
+                      onClick={() => setSelected(filter)}
+                    >
+                      {filter}
+                    </Button1>
+                  )
+                ))}
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem', width: '100%' }}>
+                {(() => {
+                  const filter = FILTERS[2];
+                  return selected === filter ? (
+                    <Button2
+                      key={filter}
+                      onClick={() => setSelected(filter)}
+                    >
+                      {filter}
+                    </Button2>
+                  ) : (
+                    <Button1
+                      key={filter}
+                      onClick={() => setSelected(filter)}
+                    >
+                      {filter}
+                    </Button1>
+                  );
+                })()}
+              </div>
+            </>
+          )}
         </div>
       ) : (
         <div style={{

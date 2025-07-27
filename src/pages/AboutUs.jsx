@@ -7,6 +7,7 @@ import BlurImage from '../assets/Blur.png';
 import BottomPattern from '../assets/bottom_pattern.png';
 import AboutUsHeroImage from '../assets/AboutUsHero.png';
 import TeamWorkImage from '../assets/TeamWork.png';
+import { motion } from 'framer-motion';
 
 const AboutUs = () => {
   const stats = [
@@ -63,10 +64,39 @@ const AboutUs = () => {
       <section className="team-section">
         <div className="team-container">
           <div className="section-header">
-            <h2 className="section-title">"Innovation happens when people from different backgrounds work together."</h2>
-            <p className="section-subtitle">
+            <motion.h2 
+              className="section-title"
+              initial={{ opacity: 0, y: -60, scale: 0.8 }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0, 
+                scale: 1,
+                transition: {
+                  duration: 1,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }
+              }}
+              viewport={{ amount: 0.3 }}
+            >
+              "Innovation happens when people from different backgrounds work together."
+            </motion.h2>
+            <motion.p 
+              className="section-subtitle"
+              initial={{ opacity: 0, y: -40, scale: 0.9 }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0, 
+                scale: 1,
+                transition: {
+                  duration: 0.8,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  delay: 0.3
+                }
+              }}
+              viewport={{ amount: 0.3 }}
+            >
               — Reid Hoffman, Co-founder of LinkedIn
-            </p>
+            </motion.p>
           </div>
           <div className="team-image">
             <img src={TeamWorkImage} alt="Teamwork" />

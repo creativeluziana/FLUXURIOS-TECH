@@ -30,14 +30,14 @@ const Footer = () => {
             <h4>Contact</h4>
             <ul>
               <li>Email: hello@fluxurious.tech</li>
-              <li>Phone: +1 (555) 123-4567</li>
-              <li>Address: 123 Tech Street, Digital City</li>
+              <li>Phone: +91 9372894470</li>
+              <li>Address: Thane , Maharashtra</li>
             </ul>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; 2024 Fluxurious Tech. All rights reserved.</p>
+          <p>&copy; 2025 Fluxurious Tech. All rights reserved.</p>
         </div>
       </div>
     </footer>

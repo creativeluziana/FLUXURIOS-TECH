@@ -6,7 +6,8 @@ import WhatsUnderHood from '../components/Home/WhatsUnderHood.jsx';
 import HowWeDeliver from '../components/Home/HowWeDeliver.jsx';
 import OurWork from '../components/Home/OurWork.jsx';
 import Testimonials from '../components/Home/Testimonials.jsx';
-import Start7DayProj from '../components/Home/Start7DayProj.jsx';
+import WhatsApp from '../components/WhatsApp.jsx';
+import ContactUs from '../components/ContactUs.jsx';
 import Footer from '../components/Footer.jsx';
 
 const Home = () => {
@@ -19,7 +20,8 @@ const Home = () => {
       <HowWeDeliver />
       <OurWork />
       <Testimonials />
-      <Start7DayProj />
+      <WhatsApp />
+      <ContactUs />
       <Footer />
     </div>
   );

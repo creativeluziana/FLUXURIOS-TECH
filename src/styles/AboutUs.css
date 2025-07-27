@@ -60,14 +60,11 @@
 }
 
 .hero-title {
-  font-size: 4rem;
-  font-weight: 700;
+  font-size: 3.5rem;
+  font-weight: 600;
   color: #FFFFFF;
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typewriter 3s steps(20) 0.5s both;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
 }
 
 .hero-subtitle {
@@ -489,8 +486,12 @@
     max-width: 350px;
   }
 
-  .section-title {
-    font-size: 2.5rem;
+  .section-title,
+  .team-section .section-title,
+  .about-container .section-title {
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+    padding: 0 0.75rem !important;
   }
 
   .section-subtitle {
@@ -548,8 +549,12 @@
     max-width: 280px;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .section-title,
+  .team-section .section-title,
+  .about-container .section-title {
+    font-size: 0.75rem !important;
+    line-height: 1.5 !important;
+    padding: 0 0.5rem !important;
   }
 
   .section-subtitle {
@@ -575,5 +580,19 @@
 
   .team-image img {
     max-width: 400px;
+  }
+}
+
+@media (max-width: 360px) {
+  .section-title,
+  .team-section .section-title,
+  .about-container .section-title {
+    font-size: 0.625rem !important;
+    line-height: 1.6 !important;
+    padding: 0 0.25rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.5rem !important;
   }
 } 

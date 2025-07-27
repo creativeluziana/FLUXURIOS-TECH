@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/Home/Testimonials.css';
 import BlurEffect from '../../assets/Blur.png';
+import { motion } from 'framer-motion';
 
 const Testimonials = () => {
   const testimonials = [
@@ -24,18 +25,85 @@ const Testimonials = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: -100,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
   return (
     <section className="testimonials">
       <img src={BlurEffect} alt="" className="blur-top-effect" />
       <div className="container">
         <div className="section-header">
-          <h2>Client Success Stories</h2>
-          <p>Don't just take our word for it. Here's what our clients have to say about working with us.</p>
+          <motion.h2
+            initial={{ opacity: 0, y: -60, scale: 0.8 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 1,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
+            Client Success Stories
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: -40, scale: 0.9 }}
+            whileInView={{ 
+              opacity: 1, 
+              y: 0, 
+              scale: 1,
+              transition: {
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: 0.3
+              }
+            }}
+            viewport={{ amount: 0.3 }}
+          >
+            Don't just take our word for it. Here's what our clients have to say about working with us.
+          </motion.p>
         </div>
 
-        <div className="testimonials-grid">
+        <motion.div 
+          className="testimonials-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.3 }}
+        >
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
+            <motion.div 
+              key={index} 
+              className="testimonial-card"
+              variants={cardVariants}
+            >
               <div className="testimonial-author">
                 <div className="author-image-container">
                   <img src={testimonial.image} alt={testimonial.name} className="author-image" />
@@ -46,9 +114,9 @@ const Testimonials = () => {
                 </div>
               </div>
               <p className="quote">{testimonial.quote}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
