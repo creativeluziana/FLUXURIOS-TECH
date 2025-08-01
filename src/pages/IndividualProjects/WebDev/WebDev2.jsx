@@ -8,6 +8,7 @@ import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
 import { useNavigate } from 'react-router-dom';
 import MockupGymWebsite from '../../../assets/PROJECT/WebDev/WebDev/Mockup_GymWebsite.png';
+import VideoGym from '../../../assets/PROJECT/WebDev/WebDev/Video_Gym.mp4';
 import { motion } from 'framer-motion';
 import '../../../styles/Projects/WebDev1.css';
 
@@ -32,11 +33,39 @@ const cardVariants = {
   }),
 };
 
+// Mobile-specific animation variants (no 3D transforms)
+const mobileCardVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.15,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  }),
+};
+
 
 
 const WebDev2 = () => {
   const [hover, setHover] = React.useState(false);
   const navigate = useNavigate();
+  
+  // Mobile detection hook
+  const useIsMobile = (breakpoint = 768) => {
+    const [isMobile, setIsMobile] = React.useState(() => window.innerWidth < breakpoint);
+    React.useEffect(() => {
+      const onResize = () => setIsMobile(window.innerWidth < breakpoint);
+      window.addEventListener('resize', onResize);
+      return () => window.removeEventListener('resize', onResize);
+    }, [breakpoint]);
+    return isMobile;
+  };
+  
+  const isMobile = useIsMobile();
   
   // CSS variables for styling
   const borderColor = '#2a2a3a';
@@ -61,14 +90,14 @@ const WebDev2 = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         custom={0}
-        variants={cardVariants}
-        style={{ perspective: '1000px' }}
+        variants={isMobile ? mobileCardVariants : cardVariants}
+        style={{ perspective: isMobile ? 'none' : '1000px' }}
       >
         {/* Image Card First on Mobile */}
         <motion.div 
           className="webdev1-image-box"
           custom={1}
-          variants={cardVariants}
+          variants={isMobile ? mobileCardVariants : cardVariants}
         >
             <div
             className="webdev1-image-card"
@@ -88,7 +117,7 @@ const WebDev2 = () => {
         <motion.div 
           className="webdev1-info-box"
           custom={2}
-          variants={cardVariants}
+          variants={isMobile ? mobileCardVariants : cardVariants}
         >
           <div className="webdev1-title">{project.title}</div>
           <div className="webdev1-subheader">{project.subheader}</div>
@@ -103,8 +132,8 @@ const WebDev2 = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         custom={3}
-        variants={cardVariants}
-        style={{ perspective: '1000px' }}
+        variants={isMobile ? mobileCardVariants : cardVariants}
+        style={{ perspective: isMobile ? 'none' : '1000px' }}
       >
         <div style={{
           color: '#fff',
@@ -144,8 +173,8 @@ const WebDev2 = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         custom={4}
-        variants={cardVariants}
-        style={{ perspective: '1000px' }}
+        variants={isMobile ? mobileCardVariants : cardVariants}
+        style={{ perspective: isMobile ? 'none' : '1000px' }}
       >
         {/* Decorative Blur at the top of the section */}
         <img src={BlurImage} alt="Blur" style={{
@@ -218,15 +247,22 @@ const WebDev2 = () => {
               boxShadow: hover ? '0 0 20px 0 rgba(171,40,250,0.4)' : 'none',
             }}
           >
-            <img src={GymWebsiteImage} alt="Walkthrough Screenshot" style={{
-              width: '95%',
-              height: '90%',
-              objectFit: 'contain',
-              display: 'block',
-              borderRadius: '0.7rem',
-              background: '#18182a',
-              margin: 0
-            }} />
+            <video
+              src={VideoGym}
+              controls
+              autoPlay
+              muted
+              loop
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                display: 'block',
+                borderRadius: '0.7rem',
+                background: '#18182a',
+                margin: 0
+              }}
+            />
           </div>
         </div>
       </motion.div>

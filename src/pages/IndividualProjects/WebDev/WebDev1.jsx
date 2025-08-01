@@ -35,11 +35,40 @@ const cardVariants = {
   }),
 };
 
+// Mobile-specific animation variants (no 3D transforms)
+const mobileCardVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.15,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  }),
+};
+
 
 
 const WebDev1 = () => {
   const [hover, setHover] = React.useState(false);
   const navigate = useNavigate();
+  
+  // Mobile detection hook
+  const useIsMobile = (breakpoint = 768) => {
+    const [isMobile, setIsMobile] = React.useState(() => window.innerWidth < breakpoint);
+    React.useEffect(() => {
+      const onResize = () => setIsMobile(window.innerWidth < breakpoint);
+      window.addEventListener('resize', onResize);
+      return () => window.removeEventListener('resize', onResize);
+    }, [breakpoint]);
+    return isMobile;
+  };
+  
+  const isMobile = useIsMobile();
+  
   return (
     <div style={{ minHeight: '100vh', background: '#0A0A1B', display: 'flex', flexDirection: 'column' }}>
       <Navbar />
@@ -58,14 +87,14 @@ const WebDev1 = () => {
         whileInView="visible"
         viewport={{ once: false, amount: 0.2, margin: "-50px" }}
         custom={0}
-        variants={cardVariants}
-        style={{ perspective: '1000px' }}
+        variants={isMobile ? mobileCardVariants : cardVariants}
+        style={{ perspective: isMobile ? 'none' : '1000px' }}
       >
         {/* Image Card First on Mobile */}
         <motion.div 
           className="webdev1-image-box"
           custom={1}
-          variants={cardVariants}
+          variants={isMobile ? mobileCardVariants : cardVariants}
         >
           <div
             className="webdev1-image-card"
@@ -85,7 +114,7 @@ const WebDev1 = () => {
         <motion.div 
           className="webdev1-info-box"
           custom={2}
-          variants={cardVariants}
+          variants={isMobile ? mobileCardVariants : cardVariants}
         >
           <div className="webdev1-title">{project.title}</div>
           <div className="webdev1-subheader">{project.subheader}</div>
@@ -104,13 +133,13 @@ const WebDev1 = () => {
         alignItems: 'center',
         justifyContent: 'center',
         margin: 0,
-          perspective: '1000px',
+          perspective: isMobile ? 'none' : '1000px',
         }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2, margin: "-50px" }}
         custom={3}
-        variants={cardVariants}
+        variants={isMobile ? mobileCardVariants : cardVariants}
       >
         <div style={{
           color: '#fff',
@@ -154,13 +183,13 @@ const WebDev1 = () => {
         justifyContent: 'center',
         margin: 0,
         position: 'relative',
-          perspective: '1000px',
+          perspective: isMobile ? 'none' : '1000px',
         }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         custom={4}
-        variants={cardVariants}
+        variants={isMobile ? mobileCardVariants : cardVariants}
       >
         {/* Decorative Blur at the top of the section */}
         <img src={BlurImage} alt="Blur" style={{

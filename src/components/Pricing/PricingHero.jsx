@@ -13,7 +13,7 @@ const PricingHero = () => {
         <div className="hero-text">
           <h1 className="hero-title">
             Build Around Your Budget
-          </h1>
+        </h1>
           <p className="hero-description">
           Clear, flexible, and tailored to your goals — no jargon, just honest value.
           </p>

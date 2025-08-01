@@ -29,8 +29,8 @@
     display: flex;
     align-items: center;
   gap: 4rem;
-}
-
+  }
+  
 .hero-text {
     flex: 1;
     max-width: 600px;
@@ -39,7 +39,7 @@
   
   .hero-title {
   font-size: 3.5rem;
-  font-weight: 600;
+    font-weight: 600;
   color: #FFFFFF;
   margin: 0 0 1rem 0;
   line-height: 1.2;
@@ -55,17 +55,17 @@
 
 .hero-title .line-2 {
   display: block;
-  overflow: hidden;
-  white-space: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
   animation: typewriter 1.5s steps(20) 2.5s both;
   margin-top: -0.3rem;
   padding-bottom: 0.2rem;
-}
-
+  }
+  
 .hero-title .highlight {
   color: #8B5CF6;
   font-weight: 800;
-}
+  }
   
   .hero-description {
   font-size: 1.125rem;
@@ -96,8 +96,8 @@
       display: flex;
       justify-content: center;
   align-items: center;
-}
-
+    }
+  
 .hero-image img {
       width: 100%;
   height: auto;
@@ -107,8 +107,8 @@
   padding: 1.5rem;
   position: relative;
   backdrop-filter: blur(10px);
-}
-
+    }
+  
 .hero-image img::before {
   content: '';
   position: absolute;

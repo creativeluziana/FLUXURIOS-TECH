@@ -8,6 +8,7 @@ import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
 import { useNavigate } from 'react-router-dom';
 import MockupBaysideSport from '../../../assets/PROJECT/WebDev/WebDev/Mockup_BaysideSport.png';
+import VideoBayside from '../../../assets/PROJECT/WebDev/WebDev/Video_Bayside.mp4';
 import { motion } from 'framer-motion';
 import '../../../styles/Projects/WebDev1.css';
 
@@ -215,15 +216,20 @@ const WebDev4 = () => {
               boxShadow: hover ? '0 0 20px 0 rgba(171,40,250,0.4)' : 'none',
             }}
           >
-            <img src={BaysideSportsImage} alt="Walkthrough Screenshot" style={{
-              width: '95%',
-              height: '90%',
-              objectFit: 'contain',
-              display: 'block',
-              borderRadius: '0.7rem',
-              background: '#18182a',
-              margin: 0
-            }} />
+            <video
+              src={VideoBayside}
+              controls
+              autoPlay
+              muted
+              loop
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                borderRadius: '0.7rem',
+                background: '#18182a',
+              }}
+            />
           </div>
         </div>
       </motion.div>

@@ -12,7 +12,7 @@ const ProjectsHero = () => {
         <div className="hero-text">
           <h1 className="hero-title">
             Bringing Ideas to Life
-          </h1>
+        </h1>
           <p className="hero-description">
             Explore the digital products we’ve designed, developed, and delivered — with purpose and precision.
           </p>

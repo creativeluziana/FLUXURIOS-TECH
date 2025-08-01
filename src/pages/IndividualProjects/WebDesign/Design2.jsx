@@ -8,6 +8,7 @@ import StudentDashboardImage from '../../../assets/PROJECT/WebDev/WebDesign/Stud
 import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
 import MockupStudentDashboard from '../../../assets/PROJECT/WebDev/WebDesign/Mockup_StudentDashboard.png';
+import VideoStudentDash from '../../../assets/PROJECT/WebDev/WebDesign/Video_StudentDash.mp4';
 import { useNavigate } from 'react-router-dom';
 import './Design.css';
 
@@ -243,15 +244,21 @@ const Design2 = () => {
               boxShadow: hover ? '0 0 20px 0 rgba(171,40,250,0.4)' : 'none',
             }}
           >
-            <img src={StudentDashboardImage} alt="Walkthrough Screenshot" style={{
-              width: '95%',
-              height: '90%',
-              objectFit: 'contain',
-              display: 'block',
-              borderRadius: '0.7rem',
-              background: '#18182a',
-              margin: 0
-            }} />
+            <video
+              src={VideoStudentDash}
+              controls
+              autoPlay
+              muted
+              loop
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                borderRadius: '0.7rem',
+                background: '#18182a',
+                margin: 0
+              }}
+            />
           </div>
         </div>
       </motion.div>

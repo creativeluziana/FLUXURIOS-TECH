@@ -8,6 +8,7 @@ import AarohanImage from '../../../assets/PROJECT/WebDev/WebDesign/Aarohan.png';
 import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
 import MockupAarohan from '../../../assets/PROJECT/WebDev/WebDesign/Mockup_Aarohan.png';
+import VideoAarohan from '../../../assets/PROJECT/WebDev/WebDesign/Video_Aarohan.mp4';
 import { useNavigate } from 'react-router-dom';
 import './Design.css';
 
@@ -243,15 +244,20 @@ const Design1 = () => {
               boxShadow: hover ? '0 0 20px 0 rgba(171,40,250,0.4)' : 'none',
             }}
           >
-            <img src={AarohanImage} alt="Walkthrough Screenshot" style={{
-              width: '95%',
-              height: '90%',
-              objectFit: 'contain',
-              display: 'block',
-              borderRadius: '0.7rem',
-              background: '#18182a',
-              margin: 0
-            }} />
+            <video
+              src={VideoAarohan}
+              controls
+              autoPlay
+              muted
+              loop
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                borderRadius: '0.7rem',
+                background: '#18182a',
+              }}
+            />
           </div>
         </div>
       </motion.div>

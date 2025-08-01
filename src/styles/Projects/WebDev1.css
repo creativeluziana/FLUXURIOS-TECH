@@ -62,12 +62,12 @@
 .webdev1-info-box {
   flex: 1;
   max-width: 520px;
-  text-align: center;
+  text-align: left;
   order: 1; /* Info on left for larger screens */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
 }
 

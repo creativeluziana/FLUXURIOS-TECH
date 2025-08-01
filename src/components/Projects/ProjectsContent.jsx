@@ -32,6 +32,21 @@ const cardVariants = {
   }),
 };
 
+// Mobile-specific animation variants (no 3D transforms)
+const mobileCardVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.15,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  }),
+};
+
 const PROJECTS = {
   'Web Design': [
     { id: 1, reverse: false, title: 'Aarohan', subheader: 'Education for every dream', description: 'Designed a platform to uplift underserved students—accessible, inspiring, and built to break barriers.', image: AarohanImage },
@@ -301,14 +316,14 @@ const ProjectCard = ({ reverse, index, title, subheader, description, image, isM
         borderRadius: 32,
         padding: isMobile ? '16px 0' : '32px 0',
         gap: isMobile ? 16 : 48,
-        perspective: 1200,
+        perspective: isMobile ? 'none' : 1200,
         width: '100%',
       }}
       custom={index}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
-      variants={cardVariants}
+      variants={isMobile ? mobileCardVariants : cardVariants}
     >
       {cardContent}
     </motion.div>
@@ -418,45 +433,45 @@ const ProjectsContent = () => {
           ) : (
             // Original 2x1 layout for larger mobile screens
             <>
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', width: '100%' }}>
-                {FILTERS.slice(0, 2).map((filter) => (
-                  selected === filter ? (
-                    <Button2
-                      key={filter}
-                      onClick={() => setSelected(filter)}
-                    >
-                      {filter}
-                    </Button2>
-                  ) : (
-                    <Button1
-                      key={filter}
-                      onClick={() => setSelected(filter)}
-                    >
-                      {filter}
-                    </Button1>
-                  )
-                ))}
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem', width: '100%' }}>
-                {(() => {
-                  const filter = FILTERS[2];
-                  return selected === filter ? (
-                    <Button2
-                      key={filter}
-                      onClick={() => setSelected(filter)}
-                    >
-                      {filter}
-                    </Button2>
-                  ) : (
-                    <Button1
-                      key={filter}
-                      onClick={() => setSelected(filter)}
-                    >
-                      {filter}
-                    </Button1>
-                  );
-                })()}
-              </div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', width: '100%' }}>
+            {FILTERS.slice(0, 2).map((filter) => (
+              selected === filter ? (
+                <Button2
+                  key={filter}
+                  onClick={() => setSelected(filter)}
+                >
+                  {filter}
+                </Button2>
+              ) : (
+                <Button1
+                  key={filter}
+                  onClick={() => setSelected(filter)}
+                >
+                  {filter}
+                </Button1>
+              )
+            ))}
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '0.5rem', width: '100%' }}>
+            {(() => {
+              const filter = FILTERS[2];
+              return selected === filter ? (
+                <Button2
+                  key={filter}
+                  onClick={() => setSelected(filter)}
+                >
+                  {filter}
+                </Button2>
+              ) : (
+                <Button1
+                  key={filter}
+                  onClick={() => setSelected(filter)}
+                >
+                  {filter}
+                </Button1>
+              );
+            })()}
+          </div>
             </>
           )}
         </div>
