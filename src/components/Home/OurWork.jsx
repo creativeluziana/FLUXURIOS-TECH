@@ -5,9 +5,9 @@ import LogoSymbol from '../../assets/IMP/LOGO_SYMBOL.png';
 import { motion } from 'framer-motion';
 
 // WebDev Projects
-import BaysideSports from '../../assets/PROJECT/WebDev/WebDev/BaysideSports.png';
-import GymWebsite from '../../assets/PROJECT/WebDev/WebDev/GymWebsite.png';
-import NetwealthIndia from '../../assets/PROJECT/WebDev/WebDev/NetwealthIndia.png';
+import BaysideSports from '../../assets/PROJECT/WebDev/BaysideSports.png';
+import GymWebsite from '../../assets/PROJECT/WebDev/GymWebsite.png';
+import NetwealthIndia from '../../assets/PROJECT/WebDev/NetwealthIndia.png';
 
 // WebDesign Projects
 import Aarohan from '../../assets/PROJECT/WebDev/WebDesign/Aarohan.png';

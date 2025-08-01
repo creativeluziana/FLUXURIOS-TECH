@@ -3,11 +3,11 @@
 import React from 'react';
 import Navbar from '../../../components/Navbar.jsx';
 import Footer from '../../../components/Footer.jsx';
-import LuxuryVacationsImage from '../../../assets/PROJECT/WebDev/WebDev/LuxuryVacations.png';
+import LuxuryVacationsImage from '../../../assets/PROJECT/WebDev/LuxuryVacations.png';
 import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
 import { useNavigate } from 'react-router-dom';
-import MockupLuxuryVacations from '../../../assets/PROJECT/WebDev/WebDev/Mockup_LuxuryVacations.png';
+import MockupLuxuryVacations from '../../../assets/PROJECT/WebDev/Mockup_LuxuryVacations.png';
 import { motion } from 'framer-motion';
 import '../../../styles/Projects/WebDev1.css';
 

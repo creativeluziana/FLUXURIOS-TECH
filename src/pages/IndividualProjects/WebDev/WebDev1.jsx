@@ -1,12 +1,12 @@
 import React from 'react';
 import Navbar from '../../../components/Navbar.jsx';
 import Footer from '../../../components/Footer.jsx';
-import NetwealthIndiaImage from '../../../assets/PROJECT/WebDev/WebDev/NetwealthIndia.png';
+import NetwealthIndiaImage from '../../../assets/PROJECT/WebDev/NetwealthIndia.png';
 import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
 import { useNavigate } from 'react-router-dom';
-import MockupNetWealth from '../../../assets/PROJECT/WebDev/WebDev/Mockup_NetWealth.png';
-import VideoNetWealthIndia from '../../../assets/PROJECT/WebDev/WebDev/Video_NetWealthIndia.mp4';
+import MockupNetWealth from '../../../assets/PROJECT/WebDev/Mockup_NetWealth.png';
+import VideoNetWealthIndia from '../../../assets/PROJECT/WebDev/Video_NetWealthIndia.mp4';
 import { motion } from 'framer-motion';
 import '../../../styles/Projects/WebDev1.css';
 

@@ -3,12 +3,12 @@
 import React from 'react';
 import Navbar from '../../../components/Navbar.jsx';
 import Footer from '../../../components/Footer.jsx';
-import BaysideSportsImage from '../../../assets/PROJECT/WebDev/WebDev/BaysideSports.png';
+import BaysideSportsImage from '../../../assets/PROJECT/WebDev/BaysideSports.png';
 import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
 import { useNavigate } from 'react-router-dom';
-import MockupBaysideSport from '../../../assets/PROJECT/WebDev/WebDev/Mockup_BaysideSport.png';
-import VideoBayside from '../../../assets/PROJECT/WebDev/WebDev/Video_Bayside.mp4';
+import MockupBaysideSport from '../../../assets/PROJECT/WebDev/Mockup_BaysideSport.png';
+import VideoBayside from '../../../assets/PROJECT/WebDev/Video_Bayside.mp4';
 import { motion } from 'framer-motion';
 import '../../../styles/Projects/WebDev1.css';
 

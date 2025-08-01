@@ -3,12 +3,12 @@
 import React from 'react';
 import Navbar from '../../../components/Navbar.jsx';
 import Footer from '../../../components/Footer.jsx';
-import GymWebsiteImage from '../../../assets/PROJECT/WebDev/WebDev/GymWebsite.png';
+import GymWebsiteImage from '../../../assets/PROJECT/WebDev/GymWebsite.png';
 import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
 import { useNavigate } from 'react-router-dom';
-import MockupGymWebsite from '../../../assets/PROJECT/WebDev/WebDev/Mockup_GymWebsite.png';
-import VideoGym from '../../../assets/PROJECT/WebDev/WebDev/Video_Gym.mp4';
+import MockupGymWebsite from '../../../assets/PROJECT/WebDev/Mockup_GymWebsite.png';
+import VideoGym from '../../../assets/PROJECT/WebDev/Video_Gym.mp4';
 import { motion } from 'framer-motion';
 import '../../../styles/Projects/WebDev1.css';
 
