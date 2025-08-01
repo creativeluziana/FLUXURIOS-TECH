@@ -4,11 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../../../components/Navbar.jsx';
 import Footer from '../../../components/Footer.jsx';
-import AarohanImage from '../../../assets/PROJECT/WebDev/WebDesign/Aarohan.png';
+import AarohanImage from '../../../assets/PROJECT/WebDesign/Aarohan.png';
 import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
-import MockupAarohan from '../../../assets/PROJECT/WebDev/WebDesign/Mockup_Aarohan.png';
-import VideoAarohan from '../../../assets/PROJECT/WebDev/WebDesign/Video_Aarohan.mp4';
+import MockupAarohan from '../../../assets/PROJECT/WebDesign/Mockup_Aarohan.png';
+import VideoAarohan from '../../../assets/PROJECT/WebDesign/Video_Aarohan.mp4';
 import { useNavigate } from 'react-router-dom';
 import './Design.css';
 

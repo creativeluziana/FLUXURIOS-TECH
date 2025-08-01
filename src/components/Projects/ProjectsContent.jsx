@@ -10,9 +10,9 @@ import NetwealthIndiaImage from '../../assets/PROJECT/WebDev/NetwealthIndia.png'
 import GymWebsiteImage from '../../assets/PROJECT/WebDev/GymWebsite.png';
 import LuxuryVacationsImage from '../../assets/PROJECT/WebDev/LuxuryVacations.png';
 import BaysideSportsImage from '../../assets/PROJECT/WebDev/BaysideSports.png';
-import AarohanImage from '../../assets/PROJECT/WebDev/WebDesign/Aarohan.png';
-import StudentDashboardImage from '../../assets/PROJECT/WebDev/WebDesign/Student_Dashboard.png';
-import FashionWebDesignImage from '../../assets/PROJECT/WebDev/WebDesign/FashionWebDesign.png';
+import AarohanImage from '../../assets/PROJECT/WebDesign/Aarohan.png';
+import StudentDashboardImage from '../../assets/PROJECT/WebDesign/Student_Dashboard.png';
+import FashionWebDesignImage from '../../assets/PROJECT/WebDesign/FashionWebDesign.png';
 
 const borderColor = 'rgba(85,81,119,1)';
 const borderHover = 'rgba(171,40,250,0.5)';

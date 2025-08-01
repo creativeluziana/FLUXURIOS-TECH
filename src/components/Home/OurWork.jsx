@@ -10,9 +10,9 @@ import GymWebsite from '../../assets/PROJECT/WebDev/GymWebsite.png';
 import NetwealthIndia from '../../assets/PROJECT/WebDev/NetwealthIndia.png';
 
 // WebDesign Projects
-import Aarohan from '../../assets/PROJECT/WebDev/WebDesign/Aarohan.png';
-import FashionWebDesign from '../../assets/PROJECT/WebDev/WebDesign/FashionWebDesign.png';
-import StudentDashboard from '../../assets/PROJECT/WebDev/WebDesign/Student_Dashboard.png';
+import Aarohan from '../../assets/PROJECT/WebDesign/Aarohan.png';
+import FashionWebDesign from '../../assets/PROJECT/WebDesign/FashionWebDesign.png';
+import StudentDashboard from '../../assets/PROJECT/WebDesign/Student_Dashboard.png';
 
 const OurWork = () => {
   const projects = [

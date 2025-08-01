@@ -4,11 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../../../components/Navbar.jsx';
 import Footer from '../../../components/Footer.jsx';
-import StudentDashboardImage from '../../../assets/PROJECT/WebDev/WebDesign/Student_Dashboard.png';
+import StudentDashboardImage from '../../../assets/PROJECT/WebDesign/Student_Dashboard.png';
 import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
-import MockupStudentDashboard from '../../../assets/PROJECT/WebDev/WebDesign/Mockup_StudentDashboard.png';
-import VideoStudentDash from '../../../assets/PROJECT/WebDev/WebDesign/Video_StudentDash.mp4';
+import MockupStudentDashboard from '../../../assets/PROJECT/WebDesign/Mockup_StudentDashboard.png';
+import VideoStudentDash from '../../../assets/PROJECT/WebDesign/Video_StudentDash.mp4';
 import { useNavigate } from 'react-router-dom';
 import './Design.css';
 

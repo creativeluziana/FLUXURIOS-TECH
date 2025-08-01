@@ -4,10 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../../../components/Navbar.jsx';
 import Footer from '../../../components/Footer.jsx';
-import FashionWebDesignImage from '../../../assets/PROJECT/WebDev/WebDesign/FashionWebDesign.png';
+import FashionWebDesignImage from '../../../assets/PROJECT/WebDesign/FashionWebDesign.png';
 import BlurImage from '../../../assets/Blur.png';
 import Button2 from '../../../components/Button2.jsx';
-import MockupFashionWebDesign from '../../../assets/PROJECT/WebDev/WebDesign/Mockup_FashionWebDesign.png';
+import MockupFashionWebDesign from '../../../assets/PROJECT/WebDesign/Mockup_FashionWebDesign.png';
 import { useNavigate } from 'react-router-dom';
 import './Design.css';
 
