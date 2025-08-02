@@ -14,6 +14,10 @@ import AarohanImage from '../../assets/PROJECT/WebDesign/Aarohan.png';
 import StudentDashboardImage from '../../assets/PROJECT/WebDesign/Student_Dashboard.png';
 import FashionWebDesignImage from '../../assets/PROJECT/WebDesign/FashionWebDesign.png';
 
+// Mobile Development Projects
+import Mob1Image from '../../assets/PROJECT/MobileDev/Mob1.jpg';
+import Mob3Image from '../../assets/PROJECT/MobileDev/Mob3.png';
+
 const borderColor = 'rgba(85,81,119,1)';
 const borderHover = 'rgba(171,40,250,0.5)';
 const innerBg = 'rgba(13,13,27,0.3)';
@@ -60,8 +64,8 @@ const PROJECTS = {
     { id: 4, reverse: true, title: 'Bayside Sports Redesign', subheader: 'Scalable Online Store', description: 'Revamped the site for speed, clarity, and energy—so fans and players connect with the action in seconds.', image: BaysideSportsImage },
   ],
   'App Development': [
-    { id: 1, reverse: false, title: 'Productivity Mobile App', subheader: 'Team Productivity', description: 'A distraction-free productivity app for teams.' },
-    { id: 2, reverse: true, title: 'Fitness Tracker', subheader: 'Health & Wellness', description: 'Track workouts and progress with a beautiful UI.' }
+    { id: 1, reverse: false, title: 'Productivity Mobile App', subheader: 'Team Productivity', description: 'A distraction-free productivity app for teams.', image: Mob1Image },
+    { id: 2, reverse: true, title: 'Fitness Tracker', subheader: 'Health & Wellness', description: 'Track workouts and progress with a beautiful UI.', image: Mob3Image }
   ],
 };
 
