@@ -64,14 +64,14 @@ const PROJECTS = {
     { id: 4, reverse: true, title: 'Bayside Sports Redesign', subheader: 'Scalable Online Store', description: 'Revamped the site for speed, clarity, and energy—so fans and players connect with the action in seconds.', image: BaysideSportsImage },
   ],
   'App Development': [
-    { id: 1, reverse: false, title: 'Productivity Mobile App', subheader: 'Team Productivity', description: 'A distraction-free productivity app for teams.', image: Mob1Image },
-    { id: 2, reverse: true, title: 'Fitness Tracker', subheader: 'Health & Wellness', description: 'Track workouts and progress with a beautiful UI.', image: Mob3Image }
+    { id: 1, reverse: false, title: 'Stylish', subheader: 'Fashion & Shopping', description: 'A modern clothing shopping app with seamless user experience.', image: Mob1Image },
+    { id: 2, reverse: true, title: 'Music App', subheader: 'Entertainment', description: 'Stream and discover music with a beautiful interface.', image: Mob3Image }
   ],
 };
 
 const FILTERS = ['Web Design', 'Web Development', 'App Development'];
 
-function useIsMobile(breakpoint = 700) {
+function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = React.useState(() => window.innerWidth < breakpoint);
   React.useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < breakpoint);
@@ -91,7 +91,7 @@ function useIsVerySmallScreen(breakpoint = 490) {
   return isVerySmall;
 }
 
-const ProjectCard = ({ reverse, index, title, subheader, description, image, isMobile }) => {
+const ProjectCard = ({ reverse, index, title, subheader, description, image, isMobile, isVerySmallScreen }) => {
   const [hover, setHover] = React.useState(false);
   const isFirstWebDev = title === 'NetWealth India';
   const isSecondWebDev = title === 'Gym Website';
@@ -100,22 +100,24 @@ const ProjectCard = ({ reverse, index, title, subheader, description, image, isM
   const isFirstWebDesign = title === 'Aarohan';
   const isSecondWebDesign = title === 'Student Dashboard';
   const isThirdWebDesign = title === 'Fashion Website';
-  const isFirstAppDev = title === 'Productivity Mobile App';
-  const isSecondAppDev = title === 'Fitness Tracker';
+  const isFirstAppDev = title === 'Stylish';
+  const isSecondAppDev = title === 'Music App';
   const displayImage = image || (isFirstWebDev ? NetwealthIndiaImage : ProjectImage);
   // For mobile, always image first, then text, but keep desktop sizing
   const cardContent = isMobile ? (
     <>
       {/* Image Card */}
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 24 }}>
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 24, padding: isVerySmallScreen ? '0 12px' : '0 16px' }}>
         <div
           style={{
             position: 'relative',
-            width: '90vw',
-            maxWidth: 340,
-            height: '56vw',
-            maxHeight: 220,
-            borderRadius: '1rem',
+            width: isFirstAppDev || isSecondAppDev ? 
+              (isVerySmallScreen ? 240 : window.innerWidth <= 600 ? 280 : 300) : 
+              (isVerySmallScreen ? 320 : window.innerWidth <= 600 ? 400 : 540),
+            height: isFirstAppDev || isSecondAppDev ? 
+              (isVerySmallScreen ? 480 : window.innerWidth <= 600 ? 560 : 600) : 
+              (isVerySmallScreen ? 240 : window.innerWidth <= 600 ? 280 : 360),
+            borderRadius: isFirstAppDev || isSecondAppDev ? '2.5rem' : '1rem',
             border: `2px solid ${hover ? borderHover : borderColor}`,
             background: '#18182a',
             display: 'flex',
@@ -130,11 +132,13 @@ const ProjectCard = ({ reverse, index, title, subheader, description, image, isM
         >
           <div
             style={{
-              width: '85vw',
-              maxWidth: 300,
-              height: '48vw',
-              maxHeight: 180,
-              borderRadius: '0.7rem',
+              width: isFirstAppDev || isSecondAppDev ? 
+                (isVerySmallScreen ? 210 : window.innerWidth <= 600 ? 250 : 270) : 
+                (isVerySmallScreen ? 280 : window.innerWidth <= 600 ? 360 : 500),
+              height: isFirstAppDev || isSecondAppDev ? 
+                (isVerySmallScreen ? 420 : window.innerWidth <= 600 ? 500 : 540) : 
+                (isVerySmallScreen ? 200 : window.innerWidth <= 600 ? 240 : 320),
+              borderRadius: isFirstAppDev || isSecondAppDev ? '2rem' : '0.7rem',
               border: `2px solid ${hover ? borderHover : borderColor}`,
               background: innerBg,
               display: 'flex',
@@ -150,7 +154,7 @@ const ProjectCard = ({ reverse, index, title, subheader, description, image, isM
               height: '90%',
               objectFit: 'contain',
               display: 'block',
-              borderRadius: '0.7rem',
+              borderRadius: isFirstAppDev || isSecondAppDev ? '1.5rem' : '0.7rem',
               background: '#18182a',
               margin: 0
             }} />
@@ -158,12 +162,32 @@ const ProjectCard = ({ reverse, index, title, subheader, description, image, isM
         </div>
       </div>
       {/* Text/Info */}
-      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <div style={{ fontWeight: 700, fontSize: '2.8rem', color: '#fff', marginBottom: 12, lineHeight: 1.1, textAlign: 'center' }}>
+      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: isVerySmallScreen ? '0 12px' : '0 16px' }}>
+        <div style={{ 
+          fontWeight: 700, 
+          fontSize: isVerySmallScreen ? '2rem' : window.innerWidth <= 600 ? '2.4rem' : '2.8rem', 
+          color: '#fff', 
+          marginBottom: 12, 
+          lineHeight: 1.1, 
+          textAlign: 'center' 
+        }}>
           {title}
         </div>
-        <div style={{ color: '#bdbdbd', fontWeight: 700, fontSize: '1.25rem', marginBottom: 12, textAlign: 'center', fontStyle: 'italic' }}>{subheader}</div>
-        <div style={{ color: '#e0e0e0', fontSize: '1.15rem', marginBottom: 40, lineHeight: 1.6, textAlign: 'center' }}>
+        <div style={{ 
+          color: '#bdbdbd', 
+          fontWeight: 700, 
+          fontSize: isVerySmallScreen ? '0.9rem' : window.innerWidth <= 600 ? '1.1rem' : '1.25rem', 
+          marginBottom: 12, 
+          textAlign: 'center', 
+          fontStyle: 'italic' 
+        }}>{subheader}</div>
+        <div style={{ 
+          color: '#e0e0e0', 
+          fontSize: isVerySmallScreen ? '0.9rem' : window.innerWidth <= 600 ? '1rem' : '1.15rem', 
+          marginBottom: 40, 
+          lineHeight: 1.6, 
+          textAlign: 'center' 
+        }}>
           {description}
         </div>
         {isFirstAppDev ? (
@@ -263,9 +287,9 @@ const ProjectCard = ({ reverse, index, title, subheader, description, image, isM
         <div
           style={{
             position: 'relative',
-            width: 540,
-            height: 360,
-            borderRadius: '1rem',
+            width: isFirstAppDev || isSecondAppDev ? 300 : (window.innerWidth <= 600 ? 300 : 540),
+            height: isFirstAppDev || isSecondAppDev ? 600 : (window.innerWidth <= 600 ? 400 : 360),
+            borderRadius: isFirstAppDev || isSecondAppDev ? (window.innerWidth <= 768 ? '2.5rem' : '2.5rem') : '1rem',
             border: `2px solid ${hover ? borderHover : borderColor}`,
             background: '#18182a',
             display: 'flex',
@@ -280,9 +304,9 @@ const ProjectCard = ({ reverse, index, title, subheader, description, image, isM
         >
           <div
             style={{
-              width: 500,
-              height: 320,
-              borderRadius: '0.7rem',
+              width: isFirstAppDev || isSecondAppDev ? 270 : (window.innerWidth <= 600 ? 270 : 500),
+              height: isFirstAppDev || isSecondAppDev ? 540 : (window.innerWidth <= 600 ? 360 : 320),
+              borderRadius: isFirstAppDev || isSecondAppDev ? (window.innerWidth <= 768 ? '2rem' : '2rem') : '0.7rem',
               border: `2px solid ${hover ? borderHover : borderColor}`,
               background: innerBg,
               display: 'flex',
@@ -298,7 +322,7 @@ const ProjectCard = ({ reverse, index, title, subheader, description, image, isM
               height: '90%',
               objectFit: 'contain',
               display: 'block',
-              borderRadius: '0.7rem',
+              borderRadius: isFirstAppDev || isSecondAppDev ? (window.innerWidth <= 768 ? '1.5rem' : '0.7rem') : '0.7rem',
               background: '#18182a',
               margin: 0
             }} />
@@ -350,7 +374,7 @@ const ProjectsContent = () => {
   const isMobile = useIsMobile();
   const isVerySmallScreen = useIsVerySmallScreen(490);
   return (
-    <div style={{ width: '100%', minHeight: '100vh', background: '#0A0A1B', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: isMobile ? '0 16px' : 0 }}>
+    <div style={{ width: '100%', minHeight: '100vh', background: '#0A0A1B', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: isMobile ? (isVerySmallScreen ? '0 12px' : '0 16px') : 0 }}>
       {/* Top Blur Effect */}
       <img src={BlurImage} alt="Blur" style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: isMobile ? '90vw' : '60vw', maxWidth: 900, minWidth: 180, opacity: 0.7, filter: 'blur(2px)', zIndex: 0, pointerEvents: 'none' }} />
       {/* Filter Buttons */}
@@ -522,6 +546,7 @@ const ProjectsContent = () => {
           description={proj.description}
           image={proj.image}
           isMobile={isMobile}
+          isVerySmallScreen={isVerySmallScreen}
         />
       ))}
       {/* Bottom Pattern */}

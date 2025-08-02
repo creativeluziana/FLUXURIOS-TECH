@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Footer.css';
 import FluxLogo from '../assets/IMP/FLUX_LOGO_upscaled.png';
+import BottomPattern from '../assets/bottom_pattern.png';
 
 const Footer = () => {
   return (
@@ -39,6 +40,11 @@ const Footer = () => {
         <div className="footer-bottom">
           <p>&copy; 2025 Fluxurious Tech. All rights reserved.</p>
         </div>
+      </div>
+      
+      {/* Bottom Pattern */}
+      <div className="footer-bottom-pattern">
+        <img src={BottomPattern} alt="Bottom Pattern" className="footer-pattern-img" />
       </div>
     </footer>
   );

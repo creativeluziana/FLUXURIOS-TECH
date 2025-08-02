@@ -14,10 +14,6 @@ import Aarohan from '../../assets/PROJECT/WebDesign/Aarohan.png';
 import FashionWebDesign from '../../assets/PROJECT/WebDesign/FashionWebDesign.png';
 import StudentDashboard from '../../assets/PROJECT/WebDesign/Student_Dashboard.png';
 
-// Mobile Development Projects
-import Mob1 from '../../assets/PROJECT/MobileDev/Mob1.jpg';
-import Mob3 from '../../assets/PROJECT/MobileDev/Mob3.png';
-
 const OurWork = () => {
   const projects = [
     // WebDev Projects
@@ -63,21 +59,6 @@ const OurWork = () => {
       image: StudentDashboard,
       description: "Comprehensive student dashboard with modern design and analytics",
       url: "/projects/webdesign/3"
-    },
-    // Mobile Development Projects
-    {
-      title: "Productivity Mobile App",
-      categories: ["Mobile Development", "Productivity", "Team Collaboration"],
-      image: Mob1,
-      description: "A distraction-free productivity app for teams with seamless collaboration features",
-      url: "/projects/mobiledev/1"
-    },
-    {
-      title: "Fitness Tracker",
-      categories: ["Mobile Development", "Health & Wellness", "Fitness"],
-      image: Mob3,
-      description: "Track workouts and progress with a beautiful UI and comprehensive analytics",
-      url: "/projects/mobiledev/2"
     }
   ];
 
@@ -315,10 +296,10 @@ const OurWork = () => {
                         </div>
                         <p className="project-description">{project.description}</p>
                       </div>
-                      <div 
-                        className="project-image-container"
-                        onClick={() => handleProjectClick(project.url)}
-                      >
+                                             <div 
+                         className={`project-image-container ${project.categories.includes('Mobile Development') ? 'mobile-app' : ''}`}
+                         onClick={() => handleProjectClick(project.url)}
+                       >
                         <div className="project-image-wrapper">
                           <img src={project.image} alt={project.title} className="project-image" />
                           <div className="image-overlay">

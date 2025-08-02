@@ -65,7 +65,19 @@ const WebDev2 = () => {
     return isMobile;
   };
   
+  // Very small screen detection hook
+  const useIsVerySmallScreen = (breakpoint = 490) => {
+    const [isVerySmall, setIsVerySmall] = React.useState(() => window.innerWidth <= breakpoint);
+    React.useEffect(() => {
+      const onResize = () => setIsVerySmall(window.innerWidth <= breakpoint);
+      window.addEventListener('resize', onResize);
+      return () => window.removeEventListener('resize', onResize);
+    }, [breakpoint]);
+    return isVerySmall;
+  };
+  
   const isMobile = useIsMobile();
+  const isVerySmallScreen = useIsVerySmallScreen();
   
   // CSS variables for styling
   const borderColor = '#2a2a3a';
@@ -73,7 +85,7 @@ const WebDev2 = () => {
   const innerBg = '#0f0f1a';
   
   return (
-    <div style={{ minHeight: '100vh', background: '#0A0A1B', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', background: '#0A0A1B', display: 'flex', flexDirection: 'column', padding: isMobile ? (isVerySmallScreen ? '0 12px' : '0 16px') : 0 }}>
       <Navbar />
       {/* Back Button */}
       <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center', padding: '24px 0 0 48px', zIndex: 2 }}>

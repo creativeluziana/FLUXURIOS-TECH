@@ -385,6 +385,18 @@
   transition: all 0.3s ease;
 }
 
+/* Mobile app specific styling - phone-like dimensions */
+.project-image-container.mobile-app {
+  width: 300px;
+  height: 600px;
+  max-width: 300px;
+  max-height: 600px;
+  border-radius: 2.5rem;
+  padding: 0.75rem;
+  margin: 0 auto;
+  flex: none;
+}
+
 .project-image-container::before {
   content: '';
   position: absolute;
@@ -683,6 +695,8 @@
   .nav-arrow {
     display: none;
   }
+  
+
 }
 
 @media (max-width: 30rem) {
@@ -707,4 +721,6 @@
     height: 11.25rem;
     padding: 0.625rem;
   }
+  
+
 } 

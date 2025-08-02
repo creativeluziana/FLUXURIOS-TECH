@@ -139,3 +139,61 @@
   background: #18182a;
   margin: 0;
 }
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .webdev-flex-row {
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px 0;
+  }
+  
+  .webdev-info {
+    order: 2;
+    text-align: center !important;
+    max-width: 100%;
+    padding: 0 24px;
+    align-items: center !important;
+    justify-content: center;
+  }
+  
+  .webdev-image-outer {
+    order: 1;
+    flex: 1;
+    margin-bottom: 24px;
+  }
+  
+  .webdev-image-card {
+    width: 95vw !important;
+    max-width: 800px !important;
+    height: 25px !important;
+    min-height: 20px !important;
+  }
+  
+  .webdev-image-inner {
+    width: 90vw !important;
+    max-width: 750px !important;
+    height: 15px !important;
+    min-height: 10px !important;
+  }
+  
+  .webdev-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 10% !important;
+    border-radius: 0.7rem !important;
+  }
+  
+  .webdev-content {
+    padding: 32px 0;
+    margin-top: 32px;
+  }
+  
+  /* Ensure text elements are centered on mobile */
+  .webdev-info .webdev-title,
+  .webdev-info .webdev-subheader,
+  .webdev-info .webdev-description {
+    text-align: center !important;
+  }
+}

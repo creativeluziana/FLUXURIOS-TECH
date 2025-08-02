@@ -58,6 +58,10 @@
 
 /* Mobile responsive styles */
 @media (max-width: 768px) {
+  /* Debug: Add a visible border to confirm mobile styles are applied */
+  .design-flex-row {
+    border: 2px solid red !important;
+  }
   .design-flex-row {
     flex-direction: column;
     gap: 24px;
@@ -80,17 +84,27 @@
   }
   
   .design-image-card {
-    width: 90vw;
-    max-width: 400px;
-    height: 56vw;
-    max-height: 280px;
+    width: 95vw !important;
+    max-width: 800px !important;
+    height: 6vw !important;
+    max-height: 30px !important;
+    min-height: 20px !important;
   }
   
   .design-image-inner {
-    width: 85vw;
-    max-width: 360px;
-    height: 48vw;
-    max-height: 240px;
+    width: 90vw !important;
+    max-width: 750px !important;
+    height: 4vw !important;
+    max-height: 20px !important;
+    min-height: 15px !important;
+  }
+  
+  .design-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 10% !important;
+    border-radius: 0.7rem !important;
   }
   
   .design-content {
